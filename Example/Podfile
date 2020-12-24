@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'ANCore_Example' do
+  pod 'ANCore', :path => '../'
+
+  target 'ANCore_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
