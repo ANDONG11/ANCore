@@ -1,0 +1,16 @@
+PODS:
+  - ANCore (0.1.0)
+
+DEPENDENCIES:
+  - ANCore (from `../`)
+
+EXTERNAL SOURCES:
+  ANCore:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ANCore: 25b69de152cbd7ef12601fa83a194f99744d5305
+
+PODFILE CHECKSUM: 1dd1b492dd4a31d50b230f4d362df5d074254a67
+
+COCOAPODS: 1.10.0
