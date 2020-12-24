@@ -66,7 +66,7 @@
 		98F863435EEBF2DCCDD4E9C6 /* Pods-ANCore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANCore_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ANCore_Tests/Pods-ANCore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABA0A989238AECC3016B24D0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C7EB4292322BA6460619C439 /* Pods-ANCore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANCore_Example.release.xcconfig"; path = "Target Support Files/Pods-ANCore_Example/Pods-ANCore_Example.release.xcconfig"; sourceTree = "<group>"; };
-		CAF1B8872581E92BD31D6A37 /* ANCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ANCore.podspec; path = ../ANCore.podspec; sourceTree = "<group>"; };
+		CAF1B8872581E92BD31D6A37 /* ANCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ANCore.podspec; path = ../ANCore.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
