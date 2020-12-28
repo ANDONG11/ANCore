@@ -33,7 +33,7 @@ typedef ANAlert*__nullable(^ANAlertActTitles)(NSArray *actTitles);
 
 
 /// 弹出
-/// @param params 配置参数
+/// @param params 配置参数  使用时在block中调用（alert.title(@"测试")）
 /// @param handler 点击返回
 + (void)alertShowWithParams:(void(^)(ANAlert *alert))params handler:(ANAlertHandler)handler;
 
