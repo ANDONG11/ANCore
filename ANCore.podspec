@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = '基础框架'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,8 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'ANCore/Classes/**/*'
+#  s.source_files = 'ANCore/Classes/**/*'
+  s.source_files = 'ANCore/Classes/ANCore.h'
   
   s.subspec 'Network' do |ss|
       ss.source_files = 'ANCore/Classes/Network/*.{h,m}'
