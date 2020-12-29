@@ -7,8 +7,8 @@
 //
 
 #import "ANViewController.h"
-#import <ANCore/ANCore.h>
 
+#import "ANRouterSpec+ANTest.h"
 
 @interface ANViewController ()
 
@@ -19,8 +19,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"路由跳转" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(100, 100, 100, 100)];
+    [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+
+    
+}
+
+- (void)buttonClick {
+    /// 路由
+    [ANRouter openURL:KRequestTestURL withUserInfo:@{@"name":@"anan"} completion:^(id  _Nonnull result) {
+        NSLog(@"%@",result);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

@@ -1,16 +1,43 @@
 PODS:
-  - ANCore (0.1.2)
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - ANCore (0.1.4):
+    - ANCore/Network (= 0.1.4)
+    - ANCore/Router (= 0.1.4)
+    - ANCore/Utils (= 0.1.4)
+  - ANCore/Network (0.1.4):
+    - AFNetworking
+  - ANCore/Router (0.1.4)
+  - ANCore/Utils (0.1.4)
 
 DEPENDENCIES:
   - ANCore (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
 
 EXTERNAL SOURCES:
   ANCore:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ANCore: fc24562244099ab510d56d0c0ec136c5f62d94ae
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  ANCore: f0092280f40a2eecfbf31960835832ba9ee5046f
 
-PODFILE CHECKSUM: 1dd1b492dd4a31d50b230f4d362df5d074254a67
+PODFILE CHECKSUM: a2cf66617e1d96ffb415ae2e62a3d5b80b31adee
 
 COCOAPODS: 1.10.0
