@@ -1,5 +1,5 @@
 PODS:
-  - ANCore (0.1.1)
+  - ANCore (0.1.2)
 
 DEPENDENCIES:
   - ANCore (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ANCore: d8705bd48964fc03e673458d09d8c5c18206a941
+  ANCore: fc24562244099ab510d56d0c0ec136c5f62d94ae
 
 PODFILE CHECKSUM: 1dd1b492dd4a31d50b230f4d362df5d074254a67
 

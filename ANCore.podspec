@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = '基础框架'
 
 # This description is used to generate tags and improve search results.
@@ -28,9 +28,22 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/ANDONG11/ANCore.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'ANCore/Classes/**/*'
+  
+  s.subspec 'Network' do |ss|
+      ss.source_files = 'ANCore/Classes/Network/*.{h,m}'
+      ss.dependency 'AFNetworking'
+  end
+  
+  s.subspec 'Router' do |ss|
+      ss.source_files = 'ANCore/Classes/Router/*.{h,m}'
+  end
+  
+  s.subspec 'Utils' do |ss|
+      ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
+  end
   
   # s.resource_bundles = {
   #   'ANCore' => ['ANCore/Assets/*.png']
@@ -40,3 +53,5 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
+
+

@@ -12,6 +12,7 @@
 #import "ANAlert.h"
 #import "ANHook.h"
 #import "ANRouterSpec.h"
+#import "ANHTTPRequest.h"
 
 #endif /* ANCore_h */
 
