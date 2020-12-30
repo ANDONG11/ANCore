@@ -25,6 +25,9 @@
 		763B55B8259B362A002BDBBB /* ANTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B55B7259B362A002BDBBB /* ANTestViewController.m */; };
 		763B55E6259B3902002BDBBB /* ANRouterSpec+ANTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B55E5259B3902002BDBBB /* ANRouterSpec+ANTest.m */; };
 		763B55ED259B3BFF002BDBBB /* ANTestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B55EC259B3BFF002BDBBB /* ANTestRequest.m */; };
+		763B55F5259C15C5002BDBBB /* ANButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B55F4259C15C5002BDBBB /* ANButton.m */; };
+		763B5611259CAB60002BDBBB /* NSObject+ANSwizzleHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5610259CAB60002BDBBB /* NSObject+ANSwizzleHook.m */; };
+		763B5618259CCC02002BDBBB /* NSArray+ANCrashGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5617259CCC02002BDBBB /* NSArray+ANCrashGuard.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		A8F795892F8713A0911FA306 /* Pods_ANCore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090AC35DC05A98F245EA9833 /* Pods_ANCore_Example.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,12 @@
 		763B55E5259B3902002BDBBB /* ANRouterSpec+ANTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ANRouterSpec+ANTest.m"; sourceTree = "<group>"; };
 		763B55EB259B3BFF002BDBBB /* ANTestRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANTestRequest.h; sourceTree = "<group>"; };
 		763B55EC259B3BFF002BDBBB /* ANTestRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANTestRequest.m; sourceTree = "<group>"; };
+		763B55F3259C15C5002BDBBB /* ANButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANButton.h; sourceTree = "<group>"; };
+		763B55F4259C15C5002BDBBB /* ANButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANButton.m; sourceTree = "<group>"; };
+		763B560F259CAB60002BDBBB /* NSObject+ANSwizzleHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ANSwizzleHook.h"; sourceTree = "<group>"; };
+		763B5610259CAB60002BDBBB /* NSObject+ANSwizzleHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ANSwizzleHook.m"; sourceTree = "<group>"; };
+		763B5616259CCC02002BDBBB /* NSArray+ANCrashGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+ANCrashGuard.h"; sourceTree = "<group>"; };
+		763B5617259CCC02002BDBBB /* NSArray+ANCrashGuard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ANCrashGuard.m"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98F863435EEBF2DCCDD4E9C6 /* Pods-ANCore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANCore_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ANCore_Tests/Pods-ANCore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABA0A989238AECC3016B24D0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -141,6 +150,8 @@
 		6003F593195388D20070C39A /* Example for ANCore */ = {
 			isa = PBXGroup;
 			children = (
+				763B560E259CAAEE002BDBBB /* New Group */,
+				763B560D259CAA8D002BDBBB /* CrashGuard */,
 				6003F59C195388D20070C39A /* ANAppDelegate.h */,
 				6003F59D195388D20070C39A /* ANAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -152,6 +163,8 @@
 				763B55E5259B3902002BDBBB /* ANRouterSpec+ANTest.m */,
 				763B55EB259B3BFF002BDBBB /* ANTestRequest.h */,
 				763B55EC259B3BFF002BDBBB /* ANTestRequest.m */,
+				763B55F3259C15C5002BDBBB /* ANButton.h */,
+				763B55F4259C15C5002BDBBB /* ANButton.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -198,6 +211,24 @@
 				5B4DAD9DDCC42631323F7928 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		763B560D259CAA8D002BDBBB /* CrashGuard */ = {
+			isa = PBXGroup;
+			children = (
+				763B560F259CAB60002BDBBB /* NSObject+ANSwizzleHook.h */,
+				763B5610259CAB60002BDBBB /* NSObject+ANSwizzleHook.m */,
+				763B5616259CCC02002BDBBB /* NSArray+ANCrashGuard.h */,
+				763B5617259CCC02002BDBBB /* NSArray+ANCrashGuard.m */,
+			);
+			name = CrashGuard;
+			sourceTree = "<group>";
+		};
+		763B560E259CAAEE002BDBBB /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		CCCF9539E0626E73B274E046 /* Pods */ = {
@@ -384,11 +415,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763B5618259CCC02002BDBBB /* NSArray+ANCrashGuard.m in Sources */,
+				763B55F5259C15C5002BDBBB /* ANButton.m in Sources */,
 				763B55ED259B3BFF002BDBBB /* ANTestRequest.m in Sources */,
 				763B55E6259B3902002BDBBB /* ANRouterSpec+ANTest.m in Sources */,
 				6003F59E195388D20070C39A /* ANAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ANViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				763B5611259CAB60002BDBBB /* NSObject+ANSwizzleHook.m in Sources */,
 				763B55B8259B362A002BDBBB /* ANTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
