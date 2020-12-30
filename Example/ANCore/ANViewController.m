@@ -7,8 +7,8 @@
 //
 
 #import "ANViewController.h"
-
 #import "ANRouterSpec+ANTest.h"
+#import "NSArray+ANCrashGuard.h"
 
 @interface ANViewController ()
 
@@ -26,6 +26,11 @@
     [button setFrame:CGRectMake(100, 100, 100, 100)];
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    [NSArray initCrashGuard];
+    
+    NSArray *arr = @[@"1",@"2"];
+    NSLog(@"arr:%@",arr[3]);
 
     
 }

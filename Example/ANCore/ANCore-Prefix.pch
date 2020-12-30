@@ -14,5 +14,7 @@
     @import UIKit;
     @import Foundation;
 #import <ANCore.h>
+#import "NSObject+ANSwizzleHook.h"
+#import "ANCrashException.h"
 
 #endif
