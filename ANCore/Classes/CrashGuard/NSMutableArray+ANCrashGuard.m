@@ -7,8 +7,6 @@
 //
 
 #import "NSMutableArray+ANCrashGuard.h"
-#import "NSObject+ANSwizzleHook.h"
-#import "ANCrashException.h"
 
 @implementation NSMutableArray (ANCrashGuard)
 

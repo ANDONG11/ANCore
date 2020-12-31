@@ -7,8 +7,6 @@
 //
 
 #import "NSDictionary+ANCrashGuard.h"
-#import "NSObject+ANSwizzleHook.h"
-#import "ANCrashException.h"
 
 @implementation NSDictionary (ANCrashGuard)
 

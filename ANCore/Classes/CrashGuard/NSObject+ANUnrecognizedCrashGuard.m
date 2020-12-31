@@ -7,8 +7,6 @@
 //
 
 #import "NSObject+ANUnrecognizedCrashGuard.h"
-#import "NSObject+ANSwizzleHook.h"
-#import "ANCrashException.h"
 
 @implementation NSObject (ANUnrecognizedCrashGuard)
 

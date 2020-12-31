@@ -13,6 +13,7 @@
 #import "ANRouterSpec.h"
 #import "ANHTTPRequest.h"
 #import "NSObject+ANSwizzleHook.h"
+#import "ANCrashException.h"
 #import "ANCrashGuardManager.h"
 
 #endif /* ANCore_h */

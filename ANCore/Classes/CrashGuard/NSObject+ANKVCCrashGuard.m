@@ -7,8 +7,6 @@
 //
 
 #import "NSObject+ANKVCCrashGuard.h"
-#import "NSObject+ANSwizzleHook.h"
-#import "ANCrashException.h"
 
 @implementation NSObject (ANKVCCrashGuard)
 
