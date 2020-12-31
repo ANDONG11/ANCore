@@ -40,7 +40,6 @@ TODO: Add long description of the pod here.
   
   s.subspec 'CrashGuard' do |ss|
       ss.source_files = 'ANCore/Classes/CrashGuard/*.{h,m}'
-      ss.prefix_header_contents = '#import "ANCore.h"'
   end
   
   # s.resource_bundles = {

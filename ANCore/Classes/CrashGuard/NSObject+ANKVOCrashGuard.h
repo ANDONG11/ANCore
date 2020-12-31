@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+ANSwizzleHook.h"
+#import "ANCrashException.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
