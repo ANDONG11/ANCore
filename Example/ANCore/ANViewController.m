@@ -8,7 +8,7 @@
 
 #import "ANViewController.h"
 #import "ANRouterSpec+ANTest.h"
-#import "NSArray+ANCrashGuard.h"
+#import "ANCrashGuardManager.h"
 
 @interface ANViewController ()
 
@@ -27,7 +27,7 @@
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    [NSArray initCrashGuard];
+    [ANCrashGuardManager openCrashGuard];
     
     NSArray *arr = @[@"1",@"2"];
     NSLog(@"arr:%@",arr[3]);
@@ -36,8 +36,9 @@
 }
 
 - (void)buttonClick {
+    NSString *name = nil;
     /// 路由
-    [ANRouter openURL:KRequestTestURL withUserInfo:@{@"name":@"anan"} completion:^(id  _Nonnull result) {
+    [ANRouter openURL:KRequestTestURL withUserInfo:@{@"name":name} completion:^(id  _Nonnull result) {
         NSLog(@"%@",result);
     }];
 }

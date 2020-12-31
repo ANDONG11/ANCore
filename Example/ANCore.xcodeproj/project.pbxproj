@@ -29,6 +29,12 @@
 		763B5611259CAB60002BDBBB /* NSObject+ANSwizzleHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5610259CAB60002BDBBB /* NSObject+ANSwizzleHook.m */; };
 		763B5618259CCC02002BDBBB /* NSArray+ANCrashGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5617259CCC02002BDBBB /* NSArray+ANCrashGuard.m */; };
 		763B5624259CCF30002BDBBB /* ANCrashException.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5623259CCF30002BDBBB /* ANCrashException.m */; };
+		763B5629259CD743002BDBBB /* NSMutableArray+ANCrashGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5628259CD743002BDBBB /* NSMutableArray+ANCrashGuard.m */; };
+		763B562E259CD96E002BDBBB /* ANCrashGuardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B562D259CD96E002BDBBB /* ANCrashGuardManager.m */; };
+		763B5633259D5C9B002BDBBB /* NSObject+ANUnrecognizedCrashGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5632259D5C9B002BDBBB /* NSObject+ANUnrecognizedCrashGuard.m */; };
+		763B5642259D6244002BDBBB /* NSDictionary+ANCrashGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5641259D6244002BDBBB /* NSDictionary+ANCrashGuard.m */; };
+		763B5647259D6412002BDBBB /* NSMutableDictionary+ANCrashGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5646259D6412002BDBBB /* NSMutableDictionary+ANCrashGuard.m */; };
+		763B564E259D6552002BDBBB /* NSString+ANCrashGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B564D259D6552002BDBBB /* NSString+ANCrashGuard.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		A8F795892F8713A0911FA306 /* Pods_ANCore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090AC35DC05A98F245EA9833 /* Pods_ANCore_Example.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +89,18 @@
 		763B5617259CCC02002BDBBB /* NSArray+ANCrashGuard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ANCrashGuard.m"; sourceTree = "<group>"; };
 		763B5622259CCF30002BDBBB /* ANCrashException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANCrashException.h; sourceTree = "<group>"; };
 		763B5623259CCF30002BDBBB /* ANCrashException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANCrashException.m; sourceTree = "<group>"; };
+		763B5627259CD743002BDBBB /* NSMutableArray+ANCrashGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ANCrashGuard.h"; sourceTree = "<group>"; };
+		763B5628259CD743002BDBBB /* NSMutableArray+ANCrashGuard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ANCrashGuard.m"; sourceTree = "<group>"; };
+		763B562C259CD96E002BDBBB /* ANCrashGuardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANCrashGuardManager.h; sourceTree = "<group>"; };
+		763B562D259CD96E002BDBBB /* ANCrashGuardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANCrashGuardManager.m; sourceTree = "<group>"; };
+		763B5631259D5C9B002BDBBB /* NSObject+ANUnrecognizedCrashGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ANUnrecognizedCrashGuard.h"; sourceTree = "<group>"; };
+		763B5632259D5C9B002BDBBB /* NSObject+ANUnrecognizedCrashGuard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ANUnrecognizedCrashGuard.m"; sourceTree = "<group>"; };
+		763B5640259D6244002BDBBB /* NSDictionary+ANCrashGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ANCrashGuard.h"; sourceTree = "<group>"; };
+		763B5641259D6244002BDBBB /* NSDictionary+ANCrashGuard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ANCrashGuard.m"; sourceTree = "<group>"; };
+		763B5645259D6412002BDBBB /* NSMutableDictionary+ANCrashGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+ANCrashGuard.h"; sourceTree = "<group>"; };
+		763B5646259D6412002BDBBB /* NSMutableDictionary+ANCrashGuard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+ANCrashGuard.m"; sourceTree = "<group>"; };
+		763B564C259D6552002BDBBB /* NSString+ANCrashGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ANCrashGuard.h"; sourceTree = "<group>"; };
+		763B564D259D6552002BDBBB /* NSString+ANCrashGuard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ANCrashGuard.m"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98F863435EEBF2DCCDD4E9C6 /* Pods-ANCore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANCore_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ANCore_Tests/Pods-ANCore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABA0A989238AECC3016B24D0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -221,10 +239,22 @@
 			children = (
 				763B560F259CAB60002BDBBB /* NSObject+ANSwizzleHook.h */,
 				763B5610259CAB60002BDBBB /* NSObject+ANSwizzleHook.m */,
+				763B562C259CD96E002BDBBB /* ANCrashGuardManager.h */,
+				763B562D259CD96E002BDBBB /* ANCrashGuardManager.m */,
 				763B5622259CCF30002BDBBB /* ANCrashException.h */,
 				763B5623259CCF30002BDBBB /* ANCrashException.m */,
 				763B5616259CCC02002BDBBB /* NSArray+ANCrashGuard.h */,
 				763B5617259CCC02002BDBBB /* NSArray+ANCrashGuard.m */,
+				763B5627259CD743002BDBBB /* NSMutableArray+ANCrashGuard.h */,
+				763B5628259CD743002BDBBB /* NSMutableArray+ANCrashGuard.m */,
+				763B5631259D5C9B002BDBBB /* NSObject+ANUnrecognizedCrashGuard.h */,
+				763B5632259D5C9B002BDBBB /* NSObject+ANUnrecognizedCrashGuard.m */,
+				763B5640259D6244002BDBBB /* NSDictionary+ANCrashGuard.h */,
+				763B5641259D6244002BDBBB /* NSDictionary+ANCrashGuard.m */,
+				763B5645259D6412002BDBBB /* NSMutableDictionary+ANCrashGuard.h */,
+				763B5646259D6412002BDBBB /* NSMutableDictionary+ANCrashGuard.m */,
+				763B564C259D6552002BDBBB /* NSString+ANCrashGuard.h */,
+				763B564D259D6552002BDBBB /* NSString+ANCrashGuard.m */,
 			);
 			name = CrashGuard;
 			sourceTree = "<group>";
@@ -420,15 +450,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763B5633259D5C9B002BDBBB /* NSObject+ANUnrecognizedCrashGuard.m in Sources */,
 				763B5618259CCC02002BDBBB /* NSArray+ANCrashGuard.m in Sources */,
 				763B55F5259C15C5002BDBBB /* ANButton.m in Sources */,
+				763B5642259D6244002BDBBB /* NSDictionary+ANCrashGuard.m in Sources */,
+				763B5647259D6412002BDBBB /* NSMutableDictionary+ANCrashGuard.m in Sources */,
 				763B55ED259B3BFF002BDBBB /* ANTestRequest.m in Sources */,
 				763B55E6259B3902002BDBBB /* ANRouterSpec+ANTest.m in Sources */,
 				763B5624259CCF30002BDBBB /* ANCrashException.m in Sources */,
+				763B564E259D6552002BDBBB /* NSString+ANCrashGuard.m in Sources */,
 				6003F59E195388D20070C39A /* ANAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ANViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				763B5611259CAB60002BDBBB /* NSObject+ANSwizzleHook.m in Sources */,
+				763B5629259CD743002BDBBB /* NSMutableArray+ANCrashGuard.m in Sources */,
+				763B562E259CD96E002BDBBB /* ANCrashGuardManager.m in Sources */,
 				763B55B8259B362A002BDBBB /* ANTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

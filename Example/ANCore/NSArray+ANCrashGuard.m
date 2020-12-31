@@ -10,7 +10,7 @@
 
 @implementation NSArray (ANCrashGuard)
 
-+ (void)initCrashGuard {
++ (void)openCrashGuard {
     
     /// 交换类方法
     [NSArray an_swizzleClassMethod:@selector(arrayWithObject:) withSwizzleMethod:@selector(guardArrayWithObject:)];
