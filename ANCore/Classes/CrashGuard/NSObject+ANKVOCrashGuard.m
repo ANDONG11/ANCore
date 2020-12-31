@@ -172,9 +172,9 @@ static const void *mkKVOObserverContainerAssociatedKey = &mkKVOObserverContainer
 @implementation NSObject (ANKVOCrashGuard)
 
 + (void)openKVOCrashGuard {
-    an_swizzleInstanceMethod([self class], @selector(addObserver:forKeyPath:options:context:), @selector(guardAddObserver:forKeyPath:options:context:));
-    an_swizzleInstanceMethod([self class], @selector(removeObserver:forKeyPath:), @selector(guardRemoveObserver:forKeyPath:));
-    an_swizzleInstanceMethod([self class], @selector(removeObserver:forKeyPath:context:), @selector(guardRemoveObserver:forKeyPath:context:));
+//    an_swizzleInstanceMethod([self class], @selector(addObserver:forKeyPath:options:context:), @selector(guardAddObserver:forKeyPath:options:context:));
+//    an_swizzleInstanceMethod([self class], @selector(removeObserver:forKeyPath:), @selector(guardRemoveObserver:forKeyPath:));
+//    an_swizzleInstanceMethod([self class], @selector(removeObserver:forKeyPath:context:), @selector(guardRemoveObserver:forKeyPath:context:));
 }
 
 - (void)guardAddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
@@ -216,8 +216,8 @@ static const void *mkKVOObserverContainerAssociatedKey = &mkKVOObserverContainer
         [observerContainer addObserver:item];
     }
     
-    an_swizzleKVODeallocIfNeeded(self.class);
-    an_swizzleKVODeallocIfNeeded(observer.class);
+//    an_swizzleKVODeallocIfNeeded(self.class);
+//    an_swizzleKVODeallocIfNeeded(observer.class);
 }
 
 - (void)guardRemoveObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void*)context {
