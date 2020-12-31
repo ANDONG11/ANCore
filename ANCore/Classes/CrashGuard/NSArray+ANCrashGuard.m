@@ -19,11 +19,17 @@
     /// 交换对象方法
     Class __NSArray = NSClassFromString(@"__NSArrayI");
     
-    an_swizzleInstanceMethod(__NSArray,@selector(objectsAtIndexes:),@selector(guardObjectsAtIndexes:));
-    an_swizzleInstanceMethod(__NSArray,@selector(objectAtIndex:),@selector(guardObjectAtIndex:));
-    an_swizzleInstanceMethod(__NSArray,@selector(objectAtIndexedSubscript:),@selector(guardObjectAtIndexedSubscript:));
-    an_swizzleInstanceMethod(__NSArray,@selector(getObjects:range:),@selector(guardGetObjects:range:));
-    an_swizzleInstanceMethod(__NSArray,@selector(subarrayWithRange:),@selector(guardSubarrayWithRange:));
+    [__NSArray an_swizzleInstanceMethod:@selector(objectsAtIndexes:) withSwizzleMethod:@selector(guardObjectsAtIndexes:)];
+    [__NSArray an_swizzleInstanceMethod:@selector(objectAtIndex:) withSwizzleMethod:@selector(guardObjectAtIndex:)];
+    [__NSArray an_swizzleInstanceMethod:@selector(objectAtIndexedSubscript:) withSwizzleMethod:@selector(guardObjectAtIndexedSubscript:)];
+    [__NSArray an_swizzleInstanceMethod:@selector(getObjects:range:) withSwizzleMethod:@selector(guardGetObjects:range:)];
+    [__NSArray an_swizzleInstanceMethod:@selector(subarrayWithRange:) withSwizzleMethod:@selector(guardSubarrayWithRange:)];
+    
+//    an_swizzleInstanceMethod(__NSArray,@selector(objectsAtIndexes:),@selector(guardObjectsAtIndexes:));
+//    an_swizzleInstanceMethod(__NSArray,@selector(objectAtIndex:),@selector(guardObjectAtIndex:));
+//    an_swizzleInstanceMethod(__NSArray,@selector(objectAtIndexedSubscript:),@selector(guardObjectAtIndexedSubscript:));
+//    an_swizzleInstanceMethod(__NSArray,@selector(getObjects:range:),@selector(guardGetObjects:range:));
+//    an_swizzleInstanceMethod(__NSArray,@selector(subarrayWithRange:),@selector(guardSubarrayWithRange:));
 }
 
 #pragma mark - 交换类方法

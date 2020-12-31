@@ -14,7 +14,7 @@
     [NSDictionary an_swizzleClassMethod:@selector(dictionaryWithObject:forKey:) withSwizzleMethod:@selector(guardDictionaryWithObject:forKey:)];
     [NSDictionary an_swizzleClassMethod:@selector(dictionaryWithObjects:forKeys:count:) withSwizzleMethod:@selector(guardDictionaryWithObjects:forKeys:count:)];
     
-    [NSDictionary an_swizzleInstanceMethod:@selector(initWithObjects:forKeys:count:) withSwizzleMethod:@selector(guardInitWithObjects:forKeys:count:)];
+    [self an_swizzleInstanceMethod:@selector(initWithObjects:forKeys:count:) withSwizzleMethod:@selector(guardInitWithObjects:forKeys:count:)];
 }
 
 + (instancetype)guardDictionaryWithObject:(id)object forKey:(id)key {

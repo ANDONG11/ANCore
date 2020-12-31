@@ -11,9 +11,16 @@
 @implementation NSMutableDictionary (ANCrashGuard)
 
 + (void)openCrashGuard {
-    an_swizzleInstanceMethod(NSClassFromString(@"__NSDictionaryM"), @selector(setObject:forKey:), @selector(guardSetObject:forKey:));
-    an_swizzleInstanceMethod(NSClassFromString(@"__NSDictionaryM"), @selector(removeObjectForKey:), @selector(guardRemoveObjectForKey:));
-    an_swizzleInstanceMethod(NSClassFromString(@"__NSDictionaryM"), @selector(setObject:forKeyedSubscript:), @selector(guardSetObject:forKeyedSubscript:));
+    
+    Class __NSDictionaryM = NSClassFromString(@"__NSDictionaryM");
+    
+//    an_swizzleInstanceMethod(NSClassFromString(@"__NSDictionaryM"), @selector(setObject:forKey:), @selector(guardSetObject:forKey:));
+//    an_swizzleInstanceMethod(NSClassFromString(@"__NSDictionaryM"), @selector(removeObjectForKey:), @selector(guardRemoveObjectForKey:));
+//    an_swizzleInstanceMethod(NSClassFromString(@"__NSDictionaryM"), @selector(setObject:forKeyedSubscript:), @selector(guardSetObject:forKeyedSubscript:));
+    
+    [__NSDictionaryM an_swizzleInstanceMethod:@selector(setObject:forKey:) withSwizzleMethod:@selector(guardSetObject:forKey:)];
+    [__NSDictionaryM an_swizzleInstanceMethod:@selector(removeObjectForKey:) withSwizzleMethod:@selector(guardRemoveObjectForKey:)];
+    [__NSDictionaryM an_swizzleInstanceMethod:@selector(setObject:forKeyedSubscript:) withSwizzleMethod:@selector(guardSetObject:forKeyedSubscript:)];
 }
 
 - (void)guardSetObject:(id)object forKey:(id)key {

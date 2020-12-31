@@ -31,8 +31,8 @@
     [ANCrashGuardManager registerCrashHandle:self];
     [ANCrashGuardManager printLog:YES];
     
-//    NSArray *arr = @[@"1",@"2"];
-//    NSLog(@"arr:%@",arr[3]);
+    NSArray *arr = @[@"1",@"2"];
+    NSLog(@"arr:%@",arr[3]);
 
     
 }

@@ -12,11 +12,18 @@
 @implementation NSObject (ANUnrecognizedCrashGuard)
 
 + (void)openUnrecognizedCrashGuard {
-    an_swizzleClassMethod([self class], @selector(methodSignatureForSelector:), @selector(an_classMethodSignatureForSelector:));
-    an_swizzleClassMethod([self class], @selector(forwardInvocation:), @selector(an_forwardClassInvocation:));
+//    an_swizzleClassMethod([self class], @selector(methodSignatureForSelector:), @selector(an_classMethodSignatureForSelector:));
+//    an_swizzleClassMethod([self class], @selector(forwardInvocation:), @selector(an_forwardClassInvocation:));
+//
+//
+//    an_swizzleInstanceMethod([self class], @selector(methodSignatureForSelector:), @selector(an_methodSignatureForSelector:));
+//    an_swizzleInstanceMethod([self class], @selector(forwardInvocation:), @selector(an_forwardInvocation:));
     
-    an_swizzleInstanceMethod([self class], @selector(methodSignatureForSelector:), @selector(an_methodSignatureForSelector:));
-    an_swizzleInstanceMethod([self class], @selector(forwardInvocation:), @selector(an_forwardInvocation:));
+    [NSObject an_swizzleClassMethod:@selector(methodSignatureForSelector:) withSwizzleMethod:@selector(an_classMethodSignatureForSelector:)];
+    [NSObject an_swizzleClassMethod:@selector(forwardInvocation:) withSwizzleMethod:@selector(an_forwardClassInvocation:)];
+    
+    [self an_swizzleInstanceMethod:@selector(methodSignatureForSelector:) withSwizzleMethod:@selector(an_methodSignatureForSelector:)];
+    [self an_swizzleInstanceMethod:@selector(forwardInvocation:) withSwizzleMethod:@selector(an_forwardInvocation:)];
 }
 
 + (NSMethodSignature*)an_classMethodSignatureForSelector:(SEL)aSelector {
