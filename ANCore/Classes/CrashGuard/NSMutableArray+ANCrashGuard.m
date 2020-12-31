@@ -14,27 +14,16 @@
     
     Class __NSArrayM = NSClassFromString(@"__NSArrayM");
     
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(objectAtIndex:), @selector(_guardObjectAtIndex:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(subarrayWithRange:), @selector(guardSubarrayWithRange:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(objectAtIndexedSubscript:), @selector(guardObjectAtIndexedSubscript:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(addObject:), @selector(guardAddObject:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(insertObject:atIndex:), @selector(guardInsertObject:atIndex:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(removeObjectAtIndex:), @selector(guardRemoveObjectAtIndex:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(replaceObjectAtIndex:withObject:), @selector(guardReplaceObjectAtIndex:withObject:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(setObject:atIndexedSubscript:), @selector(guardSetObject:atIndexedSubscript:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(removeObjectsInRange:), @selector(guardRemoveObjectsInRange:));
-//    an_swizzleInstanceMethod(__NSArrayM, @selector(getObjects:range:), @selector(guardGetObjects:range:));
-    
-    [__NSArrayM an_swizzleInstanceMethod:@selector(objectAtIndex:) withSwizzleMethod:@selector(_guardObjectAtIndex:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(subarrayWithRange:) withSwizzleMethod:@selector(guardSubarrayWithRange:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(objectAtIndexedSubscript:) withSwizzleMethod:@selector(guardObjectAtIndexedSubscript:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(removeObjectAtIndex:) withSwizzleMethod:@selector(guardRemoveObjectAtIndex:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(addObject:) withSwizzleMethod:@selector(guardAddObject:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(insertObject:atIndex:) withSwizzleMethod:@selector(guardInsertObject:atIndex:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(replaceObjectAtIndex:withObject:) withSwizzleMethod:@selector(guardReplaceObjectAtIndex:withObject:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(setObject:atIndexedSubscript:) withSwizzleMethod:@selector(guardSetObject:atIndexedSubscript:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(removeObjectsInRange:) withSwizzleMethod:@selector(guardRemoveObjectsInRange:)];
-    [__NSArrayM an_swizzleInstanceMethod:@selector(getObjects:range:) withSwizzleMethod:@selector(guardGetObjects:range:)];
+    an_swizzleInstanceMethod(__NSArrayM, @selector(objectAtIndex:), @selector(_guardObjectAtIndex:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(subarrayWithRange:), @selector(guardSubarrayWithRange:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(objectAtIndexedSubscript:), @selector(guardObjectAtIndexedSubscript:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(addObject:), @selector(guardAddObject:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(insertObject:atIndex:), @selector(guardInsertObject:atIndex:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(removeObjectAtIndex:), @selector(guardRemoveObjectAtIndex:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(replaceObjectAtIndex:withObject:), @selector(guardReplaceObjectAtIndex:withObject:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(setObject:atIndexedSubscript:), @selector(guardSetObject:atIndexedSubscript:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(removeObjectsInRange:), @selector(guardRemoveObjectsInRange:));
+    an_swizzleInstanceMethod(__NSArrayM, @selector(getObjects:range:), @selector(guardGetObjects:range:));
   
 }
 

@@ -43,12 +43,9 @@
 @implementation NSTimer (ANCrashGuard)
 
 + (void)openCrashGuard {
-//    an_swizzleClassMethod([NSTimer class],
-//                          @selector(scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:),
-//                          @selector(guardScheduledTimerWithTimeInterval:target:selector:userInfo:repeats:));
-    
-    [NSTimer an_swizzleClassMethod:@selector(scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:)
-                 withSwizzleMethod:@selector(guardScheduledTimerWithTimeInterval:target:selector:userInfo:repeats:)];
+    an_swizzleClassMethod([NSTimer class],
+                          @selector(scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:),
+                          @selector(guardScheduledTimerWithTimeInterval:target:selector:userInfo:repeats:));
 }
 
 + (NSTimer*)guardScheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)repeat {

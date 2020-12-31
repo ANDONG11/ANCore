@@ -16,32 +16,32 @@
     [NSString an_swizzleClassMethod:@selector(stringWithCString:encoding:) withSwizzleMethod:@selector(guardStringWithCString:encoding:)];
 
     //NSPlaceholderString
-//    an_swizzleInstanceMethod(NSClassFromString(@"NSPlaceholderString"), @selector(initWithCString:encoding:), @selector(guardInitWithCString:encoding:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"NSPlaceholderString"), @selector(initWithString:), @selector(guardInitWithString:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(characterAtIndex:), @selector(guardCharacterAtIndex:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:), @selector(guardStringByReplacingOccurrencesOfString:withString:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:options:range:), @selector(guardStringByReplacingOccurrencesOfString:withString:options:range:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingCharactersInRange:withString:), @selector(guardStringByReplacingCharactersInRange:withString:));
-//
-//    //_NSCFConstantString
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(substringFromIndex:), @selector(guardSubstringFromIndex:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(substringToIndex:), @selector(guardSubstringToIndex:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(substringWithRange:), @selector(guardSubstringWithRange:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(rangeOfString:options:range:locale:), @selector(guardRangeOfString:options:range:locale:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(characterAtIndex:), @selector(guardCharacterAtIndex:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:), @selector(guardStringByReplacingOccurrencesOfString:withString:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:options:range:), @selector(guardStringByReplacingOccurrencesOfString:withString:options:range:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingCharactersInRange:withString:), @selector(guardStringByReplacingCharactersInRange:withString:));
-//    
-//    //NSTaggedPointerString
-//    an_swizzleInstanceMethod(NSClassFromString(@"NSTaggedPointerString"), @selector(substringFromIndex:), @selector(guardSubstringFromIndex:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"NSTaggedPointerString"), @selector(substringToIndex:), @selector(guardSubstringToIndex:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"NSTaggedPointerString"), @selector(substringWithRange:), @selector(guardSubstringWithRange:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"NSTaggedPointerString"), @selector(rangeOfString:options:range:locale:), @selector(guardRangeOfString:options:range:locale:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(characterAtIndex:), @selector(guardCharacterAtIndex:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:), @selector(guardStringByReplacingOccurrencesOfString:withString:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:options:range:), @selector(guardStringByReplacingOccurrencesOfString:withString:options:range:));
-//    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingCharactersInRange:withString:), @selector(guardStringByReplacingCharactersInRange:withString:));
+    an_swizzleInstanceMethod(NSClassFromString(@"NSPlaceholderString"), @selector(initWithCString:encoding:), @selector(guardInitWithCString:encoding:));
+    an_swizzleInstanceMethod(NSClassFromString(@"NSPlaceholderString"), @selector(initWithString:), @selector(guardInitWithString:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(characterAtIndex:), @selector(guardCharacterAtIndex:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:), @selector(guardStringByReplacingOccurrencesOfString:withString:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:options:range:), @selector(guardStringByReplacingOccurrencesOfString:withString:options:range:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingCharactersInRange:withString:), @selector(guardStringByReplacingCharactersInRange:withString:));
+
+    //_NSCFConstantString
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(substringFromIndex:), @selector(guardSubstringFromIndex:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(substringToIndex:), @selector(guardSubstringToIndex:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(substringWithRange:), @selector(guardSubstringWithRange:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(rangeOfString:options:range:locale:), @selector(guardRangeOfString:options:range:locale:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(characterAtIndex:), @selector(guardCharacterAtIndex:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:), @selector(guardStringByReplacingOccurrencesOfString:withString:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:options:range:), @selector(guardStringByReplacingOccurrencesOfString:withString:options:range:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingCharactersInRange:withString:), @selector(guardStringByReplacingCharactersInRange:withString:));
+    
+    //NSTaggedPointerString
+    an_swizzleInstanceMethod(NSClassFromString(@"NSTaggedPointerString"), @selector(substringFromIndex:), @selector(guardSubstringFromIndex:));
+    an_swizzleInstanceMethod(NSClassFromString(@"NSTaggedPointerString"), @selector(substringToIndex:), @selector(guardSubstringToIndex:));
+    an_swizzleInstanceMethod(NSClassFromString(@"NSTaggedPointerString"), @selector(substringWithRange:), @selector(guardSubstringWithRange:));
+    an_swizzleInstanceMethod(NSClassFromString(@"NSTaggedPointerString"), @selector(rangeOfString:options:range:locale:), @selector(guardRangeOfString:options:range:locale:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(characterAtIndex:), @selector(guardCharacterAtIndex:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:), @selector(guardStringByReplacingOccurrencesOfString:withString:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingOccurrencesOfString:withString:options:range:), @selector(guardStringByReplacingOccurrencesOfString:withString:options:range:));
+    an_swizzleInstanceMethod(NSClassFromString(@"__NSCFConstantString"), @selector(stringByReplacingCharactersInRange:withString:), @selector(guardStringByReplacingCharactersInRange:withString:));
 }
 
 

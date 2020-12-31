@@ -12,9 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//void an_swizzleClassMethod(Class cls, SEL originSelector, SEL swizzleSelector);
-//void an_swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSelector);
-//void an_swizzleKVODeallocIfNeeded(Class class);
+void an_swizzleClassMethod(Class cls, SEL originSelector, SEL swizzleSelector);
+void an_swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSelector);
+void an_swizzleKVODeallocIfNeeded(Class class);
 
 @interface NSObject (ANSwizzleHook)
 

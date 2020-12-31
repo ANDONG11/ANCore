@@ -12,15 +12,11 @@
 
 + (void)openKVCCrashGuard {
     
-//    an_swizzleInstanceMethod([self class], @selector(setValue:forKey:),@selector(crashGuardSetValue:forKey:));
-//    an_swizzleInstanceMethod([self class], @selector(setValue:forKeyPath:),@selector(crashGuardSetValue:forKeyPath:));
-//    an_swizzleInstanceMethod([self class], @selector(setValue:forUndefinedKey:),@selector(crashGuardSetValue:forUndefinedKey:));
-//    an_swizzleInstanceMethod([self class], @selector(setValuesForKeysWithDictionary:),@selector(crashGuardSetValuesForKeysWithDictionary:));
-    
-    [self an_swizzleInstanceMethod:@selector(setValue:forKey:) withSwizzleMethod:@selector(crashGuardSetValue:forKey:)];
-    [self an_swizzleInstanceMethod:@selector(setValue:forKeyPath:) withSwizzleMethod:@selector(crashGuardSetValue:forKeyPath:)];
-    [self an_swizzleInstanceMethod:@selector(setValue:forUndefinedKey:) withSwizzleMethod:@selector(crashGuardSetValue:forUndefinedKey:)];
-    [self an_swizzleInstanceMethod:@selector(setValuesForKeysWithDictionary:) withSwizzleMethod:@selector(crashGuardSetValuesForKeysWithDictionary:)];
+    an_swizzleInstanceMethod([self class], @selector(setValue:forKey:),@selector(crashGuardSetValue:forKey:));
+    an_swizzleInstanceMethod([self class], @selector(setValue:forKeyPath:),@selector(crashGuardSetValue:forKeyPath:));
+    an_swizzleInstanceMethod([self class], @selector(setValue:forUndefinedKey:),@selector(crashGuardSetValue:forUndefinedKey:));
+    an_swizzleInstanceMethod([self class], @selector(setValuesForKeysWithDictionary:),@selector(crashGuardSetValuesForKeysWithDictionary:));
+
 }
 
 - (void)crashGuardSetValue:(id)value forKey:(NSString *)key {
