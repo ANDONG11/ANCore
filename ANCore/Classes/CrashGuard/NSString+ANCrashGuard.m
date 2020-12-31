@@ -7,6 +7,8 @@
 //
 
 #import "NSString+ANCrashGuard.h"
+#import "NSObject+ANSwizzleHook.h"
+#import "ANCrashException.h"
 
 @implementation NSString (ANCrashGuard)
 

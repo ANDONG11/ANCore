@@ -7,8 +7,8 @@
 //
 
 #import "NSObject+ANKVOCrashGuard.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
+#import "NSObject+ANSwizzleHook.h"
+#import "ANCrashException.h"
 
 static const void *mkKVODeallocAssociatedKey = &mkKVODeallocAssociatedKey;
 static const void *mkKVOObserverContainerAssociatedKey = &mkKVOObserverContainerAssociatedKey;

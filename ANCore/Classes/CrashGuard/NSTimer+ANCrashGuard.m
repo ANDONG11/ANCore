@@ -7,6 +7,8 @@
 //
 
 #import "NSTimer+ANCrashGuard.h"
+#import "NSObject+ANSwizzleHook.h"
+#import "ANCrashException.h"
 
 @interface ANTimerObject : NSObject
 
