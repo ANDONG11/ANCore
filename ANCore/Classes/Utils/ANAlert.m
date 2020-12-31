@@ -1,6 +1,6 @@
 //
 //  ANAlert.m
-//  Practice
+//  ANCore
 //
 //  Created by andong on 2020/12/24.
 //  Copyright © 2020 andong. All rights reserved.

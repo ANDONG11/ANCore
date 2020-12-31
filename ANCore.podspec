@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = '基础框架'
 
 # This description is used to generate tags and improve search results.
@@ -44,6 +44,10 @@ TODO: Add long description of the pod here.
   
   s.subspec 'Utils' do |ss|
       ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
+  end
+  
+  s.subspec 'CrashGuard' do |ss|
+      ss.source_files = 'ANCore/Classes/CrashGuard/*.{h,m}'
   end
   
   # s.resource_bundles = {

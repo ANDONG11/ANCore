@@ -1,6 +1,6 @@
 //
 //  ANCrashException.h
-//  ANCore_Example
+//  ANCore
 //
 //  Created by andong on 2020/12/30.
 //  Copyright © 2020 ANDONG11. All rights reserved.
@@ -15,10 +15,22 @@ __attribute__((overloadable)) void crashExceptionHandle(NSException *exception,N
 __attribute__((overloadable)) void crashExceptionHandle(NSString *exceptionMessage);
 __attribute__((overloadable)) void crashExceptionHandle(NSString *exceptionMessage,NSString *extraInfo);
 
-@interface ANCrashException : NSObject
+@protocol ANCrashExceptionDelegate <NSObject>
+
+/**
+ * 调用 registerCrashHandle: 注册之后, 回调 crash 信息
+ */
+- (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary*)extraInfo;
+
+@end
+
+@interface ANCrashException : NSObject <ANCrashExceptionDelegate>
 
 + (instancetype)shareException;
-//@property(nonatomic,readwrite,weak) id<MKExceptionHandle> delegate;
+
+@property(nonatomic,readwrite,assign) BOOL printLog;
+
+@property(nonatomic,readwrite,weak) id<ANCrashExceptionDelegate> delegate;
 
 - (void)handleCrashInException:(nonnull NSException *)exceptionMessage extraInfo:(nullable NSString *)extraInfo;
 - (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary*)extraInfo;

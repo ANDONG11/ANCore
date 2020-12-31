@@ -1,6 +1,6 @@
 //
 //  ANCrashException.m
-//  ANCore_Example
+//  ANCore
 //
 //  Created by andong on 2020/12/30.
 //  Copyright © 2020 ANDONG11. All rights reserved.
@@ -88,25 +88,23 @@ static ANCrashException *_manager;
     uintptr_t loadAddress =  get_load_address();
     uintptr_t slideAddress =  get_slide_address();
     NSDictionary *exdic = @{
-                              @"ErrorPlace":errorPlace,
-                              @"LoadAddress":@(loadAddress),
-                              @"SlideAddress":@(slideAddress),
-                              @"description":exceptionMessage
-//                              @"callStack":callStackString
-                              };
-//    if ([self.delegate respondsToSelector:@selector(handleCrashException:extraInfo:)]){
-//        [self.delegate handleCrashException:exceptionMessage extraInfo:exdic];
-//    }
+        @"ErrorPlace":errorPlace,
+        @"LoadAddress":@(loadAddress),
+        @"SlideAddress":@(slideAddress),
+        @"description":exceptionMessage,
+        @"callStack":callStackString
+    };
+    if ([self.delegate respondsToSelector:@selector(handleCrashException:extraInfo:)]){
+        [self.delegate handleCrashException:exceptionMessage extraInfo:exdic];
+    }
     
-//    if(self.printLog){
-        ANCrashGuardLog(@"================================ MKCrashGuard Start==================================");
-        ANCrashGuardLog(@"MKCrashGuard ErrorPlace:%@",errorPlace);
-        ANCrashGuardLog(@"MKCrashGuard LoadAddress:%@",@(loadAddress));
-        ANCrashGuardLog(@"MKCrashGuard SlideAddress:%@",@(slideAddress));
-        ANCrashGuardLog(@"MKCrashGuard Description:%@",exceptionMessage);
-        ANCrashGuardLog(@"MKCrashGuard CallStack:%@",callStackString);
-        ANCrashGuardLog(@"================================ MKCrashGuard End====================================");
-//    }
+    if(self.printLog){
+        ANCrashGuardLog(@"==================== MKCrashGuard Start=========================");
+        ANCrashGuardLog(@"ErrorPlace:%@",errorPlace);
+        ANCrashGuardLog(@"Description:%@",exceptionMessage);
+        ANCrashGuardLog(@"CallStack:%@",callStackString);
+        ANCrashGuardLog(@"==================== MKCrashGuard End============================");
+    }
     
 }
 

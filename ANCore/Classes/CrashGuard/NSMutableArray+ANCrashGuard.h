@@ -1,6 +1,6 @@
 //
 //  NSMutableArray+ANCrashGuard.h
-//  ANCore_Example
+//  ANCore
 //
 //  Created by andong on 2020/12/30.
 //  Copyright © 2020 ANDONG11. All rights reserved.

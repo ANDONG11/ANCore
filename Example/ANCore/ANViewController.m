@@ -10,7 +10,7 @@
 #import "ANRouterSpec+ANTest.h"
 #import "ANCrashGuardManager.h"
 
-@interface ANViewController ()
+@interface ANViewController () <ANCrashExceptionDelegate>
 
 @end
 
@@ -28,15 +28,23 @@
     [self.view addSubview:button];
     
     [ANCrashGuardManager openCrashGuard];
+    [ANCrashGuardManager registerCrashHandle:self];
+    [ANCrashGuardManager printLog:YES];
     
-    NSArray *arr = @[@"1",@"2"];
-    NSLog(@"arr:%@",arr[3]);
+//    NSArray *arr = @[@"1",@"2"];
+//    NSLog(@"arr:%@",arr[3]);
 
     
 }
 
+-(void)handleCrashException:(NSString *)exceptionMessage extraInfo:(NSDictionary *)extraInfo {
+    
+}
+
+
+
 - (void)buttonClick {
-    NSString *name = nil;
+    NSString *name = @"name";
     /// 路由
     [ANRouter openURL:KRequestTestURL withUserInfo:@{@"name":name} completion:^(id  _Nonnull result) {
         NSLog(@"%@",result);

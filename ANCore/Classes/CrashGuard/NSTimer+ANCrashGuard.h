@@ -1,6 +1,6 @@
 //
-//  NSObject+ANUnrecognizedCrashGuard.h
-//  ANCore_Example
+//  NSTimer+ANCrashGuard.h
+//  ANCore
 //
 //  Created by andong on 2020/12/31.
 //  Copyright © 2020 ANDONG11. All rights reserved.
@@ -10,9 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (ANUnrecognizedCrashGuard)
+@interface NSTimer (ANCrashGuard)
 
-+ (void)openUnrecognizedCrashGuard;
+/**
+ * 防护 强引用 以及 target 提前销毁
+ *
+ */
++ (void)openCrashGuard;
 
 @end
 

@@ -1,6 +1,6 @@
 //
 //  NSObject+ANUnrecognizedCrashGuard.m
-//  ANCore_Example
+//  ANCore
 //
 //  Created by andong on 2020/12/31.
 //  Copyright © 2020 ANDONG11. All rights reserved.
