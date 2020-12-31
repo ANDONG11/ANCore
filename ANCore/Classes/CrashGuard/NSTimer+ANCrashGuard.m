@@ -7,6 +7,7 @@
 //
 
 #import "NSTimer+ANCrashGuard.h"
+#import <objc/runtime.h>
 
 @interface ANTimerObject : NSObject
 
