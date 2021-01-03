@@ -8,9 +8,9 @@
 
 #import "ANViewController.h"
 #import "ANRouterSpec+ANTest.h"
-#import "ANCrashGuardManager.h"
+//#import "ANCrashGuardManager.h"
 
-@interface ANViewController () <ANCrashExceptionDelegate>
+@interface ANViewController () 
 
 @end
 
@@ -27,12 +27,12 @@
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    [ANCrashGuardManager openCrashGuard];
-    [ANCrashGuardManager registerCrashHandle:self];
-    [ANCrashGuardManager printLog:YES];
-    
-    NSArray *arr = @[@"1",@"2"];
-    NSLog(@"arr:%@",arr[3]);
+//    [ANCrashGuardManager openCrashGuard];
+//    [ANCrashGuardManager registerCrashHandle:self];
+//    [ANCrashGuardManager printLog:YES];
+//
+//    NSArray *arr = @[@"1",@"2"];
+//    NSLog(@"arr:%@",arr[3]);
 
     
 }
