@@ -15,11 +15,9 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - ANCore (0.1.5):
-    - ANCore/CrashGuard (= 0.1.5)
     - ANCore/Network (= 0.1.5)
     - ANCore/Router (= 0.1.5)
     - ANCore/Utils (= 0.1.5)
-  - ANCore/CrashGuard (0.1.5)
   - ANCore/Network (0.1.5):
     - AFNetworking
   - ANCore/Router (0.1.5)
@@ -38,7 +36,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  ANCore: 2455835a7e2b28500e4def8130c02320970c31d7
+  ANCore: b102abe254a3c6689033b7f89b854dac64992660
 
 PODFILE CHECKSUM: a2cf66617e1d96ffb415ae2e62a3d5b80b31adee
 
