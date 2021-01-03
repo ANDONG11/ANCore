@@ -12,8 +12,8 @@
 #import "ANAlert.h"
 #import "ANRouterSpec.h"
 #import "ANHTTPRequest.h"
-//#import "NSObject+ANSwizzleHook.h"
-//#import "ANCrashGuardManager.h"
+#import "NSObject+ANSwizzleHook.h"
+#import "ANCrashGuardManager.h"
 
 #endif /* ANCore_h */
 

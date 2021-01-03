@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = '基础框架'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -38,9 +38,9 @@ TODO: Add long description of the pod here.
       ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
   end
   
-#  s.subspec 'CrashGuard' do |ss|
-#      ss.source_files = 'ANCore/Classes/CrashGuard/*.{h,m}'
-#  end
+  s.subspec 'CrashGuard' do |ss|
+      ss.source_files = 'ANCore/Classes/CrashGuard/*.{h,m}'
+  end
   
   # s.resource_bundles = {
   #   'ANCore' => ['ANCore/Assets/*.png']
