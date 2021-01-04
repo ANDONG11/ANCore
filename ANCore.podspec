@@ -36,7 +36,7 @@ TODO: Add long description of the pod here.
   
   s.subspec 'Utils' do |ss|
       ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
-      ss.dependency   = 'ANCore/Category'
+      ss.dependency 'ANCore/Category'
   end
   
   s.subspec 'CrashGuard' do |ss|

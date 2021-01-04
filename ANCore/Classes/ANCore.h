@@ -14,6 +14,10 @@
 #import "ANHTTPRequest.h"
 #import "NSObject+ANSwizzleHook.h"
 #import "ANCrashGuardManager.h"
+#import "NSObject+CurrentController.h"
+#import "UIColor+StringToRGB.h"
+
+#import "ANButton.h"
 
 #endif /* ANCore_h */
 
