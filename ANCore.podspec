@@ -36,7 +36,6 @@ TODO: Add long description of the pod here.
   
   s.subspec 'Utils' do |ss|
       ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
-#      ss.dependency 'ANCore/Category'
   end
   
   s.subspec 'CrashGuard' do |ss|
@@ -56,7 +55,7 @@ TODO: Add long description of the pod here.
   # }
 
    s.public_header_files = 'Pod/Classes/ANCore.h'
-   s.frameworks = 'UIKit'
+#   s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
 
