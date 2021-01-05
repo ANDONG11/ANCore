@@ -34,9 +34,9 @@ TODO: Add long description of the pod here.
       ss.source_files = 'ANCore/Classes/Router/*.{h,m}'
   end
   
-  s.subspec 'Utils' do |ss|
-      ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
-  end
+#  s.subspec 'Utils' do |ss|
+#      ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
+#  end
   
   s.subspec 'CrashGuard' do |ss|
       ss.source_files = 'ANCore/Classes/CrashGuard/*.{h,m}'
