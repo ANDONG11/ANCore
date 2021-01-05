@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.1.9'
+  s.version          = '0.2.0'
   s.summary          = '基础框架'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -48,6 +48,10 @@ TODO: Add long description of the pod here.
   
   s.subspec 'UI' do |ss|
       ss.source_files = 'ANCore/Classes/UI/*.{h,m}'
+  end
+  
+  s.subspec 'Macros' do |ss|
+      ss.source_files = 'ANCore/Classes/Macros/*.{h,m}'
   end
   
   # s.resource_bundles = {

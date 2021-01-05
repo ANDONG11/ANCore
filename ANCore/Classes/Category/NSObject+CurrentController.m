@@ -40,6 +40,10 @@
         rootVC = activeVC;
     }
     
+    if (!activeVC) {
+        activeVC = rootVC;
+    }
+    
     return activeVC;
 }
 

@@ -16,6 +16,8 @@
 #import "ANCrashGuardManager.h"
 #import "NSObject+CurrentController.h"
 #import "UIColor+StringToRGB.h"
+#import "Macros.h"
+#import "WeakStrongMacro.h"
 
 #import "ANButton.h"
 

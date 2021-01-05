@@ -25,12 +25,12 @@ typedef void(^Completion)(NSString *first);
     self.view.backgroundColor = [UIColor whiteColor];
     NSLog(@"name:%@",self.name);
     
-    ANTestRequest *request = [[ANTestRequest alloc] initWithTest:@"aaa"];
-    [request netRequestWithSuccess:^(id  _Nonnull response) {
-        
-    } failure:^(NSString * _Nonnull msg) {
-        
-    }];
+//    ANTestRequest *request = [[ANTestRequest alloc] initWithTest:@"aaa"];
+//    [request netRequestWithSuccess:^(id  _Nonnull response) {
+//        
+//    } failure:^(NSString * _Nonnull msg) {
+//        
+//    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated {

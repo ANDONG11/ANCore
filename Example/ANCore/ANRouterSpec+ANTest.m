@@ -22,32 +22,9 @@ NSString *const KRequestTestURL  = @"AN://test/" ;
         UIViewController *vc = [ANViewControllerFactory viewControllerFromHost:@"ANTest" info:info];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         nav.modalPresentationStyle = UIModalPresentationFullScreen;
-        [[ANRouterSpec topmostViewController] presentViewController:nav animated:YES completion:nil];
+        [[NSObject currentActiveController] presentViewController:nav animated:YES completion:nil];
     }];
 
 }
 
-+ (UIViewController * __nullable)topmostViewController {
-    UIViewController *topViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    
-    if (topViewController == nil) {
-        return nil;
-    }
-    
-    while (true) {
-        if (topViewController.presentedViewController != nil) {
-            topViewController = topViewController.presentedViewController;
-        } else if ([topViewController isKindOfClass:[UINavigationController class]]) {
-            UINavigationController *navi = (UINavigationController *)topViewController;
-            topViewController = navi.topViewController;
-        } else if ([topViewController isKindOfClass:[UITabBarController class]]) {
-            UITabBarController *tab = (UITabBarController *)topViewController;
-            topViewController = tab.selectedViewController;
-        } else {
-            break;
-        }
-    }
-    
-    return topViewController;
-}
 @end
