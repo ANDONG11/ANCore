@@ -10,7 +10,7 @@
 #import "ANRouterSpec+ANTest.h"
 #import "ANCrashGuardManager.h"
 
-@interface ANViewController () 
+@interface ANViewController () <ANCrashExceptionDelegate>
 
 @end
 
@@ -29,7 +29,7 @@
 
     
     [ANCrashGuardManager openCrashGuard];
-//    [ANCrashGuardManager registerCrashHandle:self];
+    [ANCrashGuardManager registerCrashHandle:self];
     [ANCrashGuardManager printLog:YES];
 
 //    NSArray *arr = @[@"1",@"2"];
