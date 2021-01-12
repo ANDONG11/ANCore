@@ -7,7 +7,7 @@
 //
 
 #import "ANAlert.h"
-//#import "NSObject+CurrentController.h"
+#import "NSObject+CurrentController.h"
 
 @interface ANAlert () {
     UIAlertControllerStyle _privateStyle;
@@ -96,35 +96,9 @@
             [alert addAction:confimAction];
         }
     }
-    [[ANAlert topmostViewController] presentViewController:alert animated:YES completion:nil];
+    [[NSObject currentActiveController] presentViewController:alert animated:YES completion:nil];
 }
 
-+ (UIViewController * __nullable)topmostViewController {
-    UIViewController *topViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    
-    if (topViewController == nil) {
-        return nil;
-    }
-    
-    while (true) {
-        if (topViewController.presentedViewController != nil) {
-            topViewController = topViewController.presentedViewController;
-        } else if ([topViewController isKindOfClass:[UINavigationController class]]) {
-            UINavigationController *navi = (UINavigationController *)topViewController;
-            topViewController = navi.topViewController;
-        } else if ([topViewController isKindOfClass:[UITabBarController class]]) {
-            UITabBarController *tab = (UITabBarController *)topViewController;
-            topViewController = tab.selectedViewController;
-        } else {
-            break;
-        }
-    }
-    
-    return topViewController;
-}
 
--(void)dealloc {
-    
-}
 
 @end

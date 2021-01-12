@@ -14,20 +14,22 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - ANCore (0.2.0):
-    - ANCore/Category (= 0.2.0)
-    - ANCore/CrashGuard (= 0.2.0)
-    - ANCore/Macros (= 0.2.0)
-    - ANCore/Network (= 0.2.0)
-    - ANCore/Router (= 0.2.0)
-    - ANCore/UI (= 0.2.0)
-  - ANCore/Category (0.2.0)
-  - ANCore/CrashGuard (0.2.0)
-  - ANCore/Macros (0.2.0)
-  - ANCore/Network (0.2.0):
+  - ANCore (0.2.1):
+    - ANCore/Category (= 0.2.1)
+    - ANCore/CrashGuard (= 0.2.1)
+    - ANCore/Macros (= 0.2.1)
+    - ANCore/Network (= 0.2.1)
+    - ANCore/Router (= 0.2.1)
+    - ANCore/UI (= 0.2.1)
+    - ANCore/Utils (= 0.2.1)
+  - ANCore/Category (0.2.1)
+  - ANCore/CrashGuard (0.2.1)
+  - ANCore/Macros (0.2.1)
+  - ANCore/Network (0.2.1):
     - AFNetworking
-  - ANCore/Router (0.2.0)
-  - ANCore/UI (0.2.0)
+  - ANCore/Router (0.2.1)
+  - ANCore/UI (0.2.1)
+  - ANCore/Utils (0.2.1)
 
 DEPENDENCIES:
   - ANCore (from `../`)
@@ -42,7 +44,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  ANCore: 2af9ac7b8abb2fe6c2932913efb164d0ee2ce785
+  ANCore: d8da0a1e1576088e26b1f2a1bf4050bf47e6c67e
 
 PODFILE CHECKSUM: a2cf66617e1d96ffb415ae2e62a3d5b80b31adee
 

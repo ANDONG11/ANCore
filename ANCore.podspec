@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.2.1'
+  s.version          = '0.2.2'
   s.summary          = '基础框架'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -34,9 +34,9 @@ TODO: Add long description of the pod here.
       ss.source_files = 'ANCore/Classes/Router/*.{h,m}'
   end
   
-#  s.subspec 'Utils' do |ss|
-#      ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
-#  end
+  s.subspec 'Utils' do |ss|
+      ss.source_files = 'ANCore/Classes/Utils/*.{h,m}'
+  end
   
   s.subspec 'CrashGuard' do |ss|
       ss.source_files = 'ANCore/Classes/CrashGuard/*.{h,m}'
@@ -48,6 +48,7 @@ TODO: Add long description of the pod here.
   
   s.subspec 'UI' do |ss|
       ss.source_files = 'ANCore/Classes/UI/*.{h,m}'
+      ss.dependency 'ANCore/Category'
   end
   
   s.subspec 'Macros' do |ss|
