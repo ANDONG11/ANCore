@@ -7,9 +7,11 @@
 //
 
 
+#import "ANBaseTestRequest.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ANTestRequest : ANHTTPRequest
+
+@interface ANTestRequest :ANBaseTestRequest
 
 - (instancetype)initWithTest:(NSString *)test;
 

@@ -60,6 +60,19 @@ typedef enum : NSUInteger {
                       success:(void (^)(id response))success
                      progress:(void (^)(NSProgress *progress))progressHandle
                       failure:(void (^)(NSString * msg))failure;
+
+
+/// 网络请求成功
+/// @param response 返回数据
+/// @param success 回调
+- (void)successWithResponse:(id)response success:(void (^)(id))success;
+
+
+/// 网络请求失败
+/// @param error 失败
+/// @param failure 回调
+- (void)errorWithResponse:(NSError *)error failure:(void (^)(NSString *))failure;
+
 @end
 
 NS_ASSUME_NONNULL_END

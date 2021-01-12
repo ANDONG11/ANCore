@@ -25,6 +25,7 @@
 		763B55B8259B362A002BDBBB /* ANTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B55B7259B362A002BDBBB /* ANTestViewController.m */; };
 		763B55E6259B3902002BDBBB /* ANRouterSpec+ANTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B55E5259B3902002BDBBB /* ANRouterSpec+ANTest.m */; };
 		763B55ED259B3BFF002BDBBB /* ANTestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B55EC259B3BFF002BDBBB /* ANTestRequest.m */; };
+		763B579D25AC83E9002BDBBB /* ANBaseTestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B579C25AC83E9002BDBBB /* ANBaseTestRequest.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		A8F795892F8713A0911FA306 /* Pods_ANCore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090AC35DC05A98F245EA9833 /* Pods_ANCore_Example.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,8 @@
 		763B55E5259B3902002BDBBB /* ANRouterSpec+ANTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ANRouterSpec+ANTest.m"; sourceTree = "<group>"; };
 		763B55EB259B3BFF002BDBBB /* ANTestRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANTestRequest.h; sourceTree = "<group>"; };
 		763B55EC259B3BFF002BDBBB /* ANTestRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANTestRequest.m; sourceTree = "<group>"; };
+		763B579B25AC83E9002BDBBB /* ANBaseTestRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANBaseTestRequest.h; sourceTree = "<group>"; };
+		763B579C25AC83E9002BDBBB /* ANBaseTestRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANBaseTestRequest.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98F863435EEBF2DCCDD4E9C6 /* Pods-ANCore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANCore_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ANCore_Tests/Pods-ANCore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABA0A989238AECC3016B24D0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				763B55E5259B3902002BDBBB /* ANRouterSpec+ANTest.m */,
 				763B55EB259B3BFF002BDBBB /* ANTestRequest.h */,
 				763B55EC259B3BFF002BDBBB /* ANTestRequest.m */,
+				763B579B25AC83E9002BDBBB /* ANBaseTestRequest.h */,
+				763B579C25AC83E9002BDBBB /* ANBaseTestRequest.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -384,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763B579D25AC83E9002BDBBB /* ANBaseTestRequest.m in Sources */,
 				763B55ED259B3BFF002BDBBB /* ANTestRequest.m in Sources */,
 				763B55E6259B3902002BDBBB /* ANRouterSpec+ANTest.m in Sources */,
 				6003F59E195388D20070C39A /* ANAppDelegate.m in Sources */,

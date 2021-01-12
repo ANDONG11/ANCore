@@ -16,6 +16,14 @@
     return @"ssss";
 }
 
+-(NSURL *)filePathURL {
+    return [NSURL URLWithString:@"123"];
+}
+
+-(NSArray *)images {
+    return @[];
+}
+
 -(id)requestArgument {
     NSMutableDictionary *params = [[super requestArgument] mutableCopy];
     [params setObject:_test forKey:@"test"];
@@ -28,5 +36,7 @@
     }
     return self;
 }
+
+
 
 @end

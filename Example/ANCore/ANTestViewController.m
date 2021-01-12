@@ -25,7 +25,15 @@ typedef void(^Completion)(NSString *first);
     self.view.backgroundColor = [UIColor whiteColor];
     NSLog(@"name:%@",self.name);
     
-//    ANTestRequest *request = [[ANTestRequest alloc] initWithTest:@"aaa"];
+    ANTestRequest *request = [[ANTestRequest alloc] initWithTest:@"aaa"];
+    [request netRequestUploadMedia:UploadMediaImageType success:^(id  _Nonnull response) {
+        
+    } progress:^(NSProgress * _Nonnull progress) {
+        
+        
+    } failure:^(NSString * _Nonnull msg) {
+        
+    }];
 //    [request netRequestWithSuccess:^(id  _Nonnull response) {
 //        
 //    } failure:^(NSString * _Nonnull msg) {
