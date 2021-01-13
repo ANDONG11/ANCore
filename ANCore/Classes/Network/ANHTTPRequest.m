@@ -122,14 +122,9 @@
 
 #pragma mark - 网络请求成功返回
 - (void)successWithResponse:(id)response success:(void (^)(id))success {
-//  NSData *data = responseObject;
-//  NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-//  int code = [dic[@"code"] intValue];
-//  if (code == 200) {
-//      success(dic[@"data"]);
-//  }  else {
-//    [self errorCodeShowWithCode:code errorMsg:dic[@"message"]];
-//  }
+    NSData *data = response;
+    NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    success(responseDic);
 }
 
 #pragma mark - 网络请求失败

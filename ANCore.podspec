@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = '基础框架'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -18,7 +18,6 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ANDONG11' => 'dongan708@gmail.com' }
   s.source           = { :git => 'https://github.com/ANDONG11/ANCore.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
 
@@ -44,6 +43,7 @@ TODO: Add long description of the pod here.
   
   s.subspec 'Category' do |ss|
       ss.source_files = 'ANCore/Classes/Category/*.{h,m}'
+      ss.dependency 'MJRefresh'
   end
   
   s.subspec 'UI' do |ss|
