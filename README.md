@@ -5,20 +5,21 @@
 [![License](https://img.shields.io/cocoapods/l/ANCore.svg?style=flat)](https://cocoapods.org/pods/ANCore)
 [![Platform](https://img.shields.io/cocoapods/p/ANCore.svg?style=flat)](https://cocoapods.org/pods/ANCore)
 
-## Example
+## 简介
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+ANCore基础框架主要包含
+1.crash防护
+2.路由
+3.对AFNetworking网络请求的封装
+具体应用可看项目中例子
 
-## Requirements
 
-## Installation
 
-ANCore is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## 安装
 
-```ruby
 pod 'ANCore'
-```
+
+
 
 ## Author
 
