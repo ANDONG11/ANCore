@@ -27,6 +27,9 @@ typedef enum : NSUInteger {
 /// 请求类型
 - (RequestMethodType)requestMethodType;
 
+/// 请求基础地址
+- (NSString *)baseUrl;
+
 /// 请求地址
 - (NSString *)requestUrl;
 

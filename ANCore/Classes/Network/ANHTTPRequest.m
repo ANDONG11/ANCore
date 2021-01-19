@@ -10,6 +10,10 @@
 
 @implementation ANHTTPRequest
 
+-(NSString *)baseUrl {
+    return @"";
+}
+
 - (NSString *)requestUrl {
     return @"";
 }
@@ -36,9 +40,10 @@
 
 #pragma mark - 网络请求
 - (void)netRequestWithSuccess:(void (^)(id response))success failure:(void (^)(NSString *msg))failure {
-
+    NSString *urlString = [self requestUrl];
+    urlString = [[self baseUrl] stringByAppendingString:urlString];
     [ANBaseRequest netRequestWithMethodType:[self requestMethodType]
-                                  URLString:[self requestUrl]
+                                  URLString:urlString
                                      params:[self requestArgument]
                                     headers:[self requestHeaderFieldValueDictionary]
                                     success:^(NSURLSessionTask * _Nullable task, id  _Nullable response) {
@@ -53,7 +58,8 @@
                       success:(void (^)(id response))success
                      progress:(void (^)(NSProgress *progress))progressHandle
                       failure:(void (^)(NSString * msg))failure {
-    
+    NSString *urlString = [self requestUrl];
+    urlString = [[self baseUrl] stringByAppendingString:urlString];
     /// 是否重写父类方法
     BOOL overridImageMethod = [self.class instanceMethodForSelector:@selector(images)] != [ANHTTPRequest instanceMethodForSelector:@selector(images)];
     BOOL overridVideoMethod = [self.class instanceMethodForSelector:@selector(filePathURL)] != [ANHTTPRequest instanceMethodForSelector:@selector(filePathURL)];

@@ -10,6 +10,9 @@
 
 @implementation ANBaseTestRequest
 
+-(NSString *)baseUrl {
+    return @"123";
+}
 /// 设置基本参数
 -(id)requestArgument {
     NSMutableDictionary *params = [[super requestArgument] mutableCopy];

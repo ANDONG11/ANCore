@@ -12,13 +12,10 @@
 
 static ANHTTPSessionManager *_instance = nil;
 
-static NSString *baseUrl = @"";
-
-
 +(instancetype)sharedInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _instance = [[ANHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+        _instance = [[ANHTTPSessionManager alloc] init];
         // 申明请求的数据是json类型
         _instance.requestSerializer  = [AFJSONRequestSerializer serializer];
         // 申明返回的结果类型

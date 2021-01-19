@@ -26,19 +26,19 @@ typedef void(^Completion)(NSString *first);
     NSLog(@"name:%@",self.name);
     
     ANTestRequest *request = [[ANTestRequest alloc] initWithTest:@"aaa"];
-    [request netRequestUploadMedia:UploadMediaImageType success:^(id  _Nonnull response) {
-        
-    } progress:^(NSProgress * _Nonnull progress) {
-        
+//    [request netRequestUploadMedia:UploadMediaImageType success:^(id  _Nonnull response) {
+//
+//    } progress:^(NSProgress * _Nonnull progress) {
+//
+//
+//    } failure:^(NSString * _Nonnull msg) {
+//
+//    }];
+    [request netRequestWithSuccess:^(id  _Nonnull response) {
         
     } failure:^(NSString * _Nonnull msg) {
         
     }];
-//    [request netRequestWithSuccess:^(id  _Nonnull response) {
-//        
-//    } failure:^(NSString * _Nonnull msg) {
-//        
-//    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated {

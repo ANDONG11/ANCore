@@ -12,6 +12,9 @@
     NSString *_test;
 }
 
+-(NSString *)baseUrl {
+    return @"234";
+}
 -(NSString *)requestUrl {
     return @"ssss";
 }
