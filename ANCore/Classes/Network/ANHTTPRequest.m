@@ -135,32 +135,7 @@
 
 #pragma mark - 网络请求失败
 - (void)errorWithResponse:(NSError *)error failure:(void (^)(NSString *))failure {
-//  NSData * data = error.userInfo[@"com.alamofire.serialization.response.error.data"];
-//  NSString * text = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//  if ([CommonUtil checkStringIsValided:text]) {
-//    NSDictionary *dic = [self dictionaryWithJsonString:text];
-//    text = [NSString stringWithFormat:@"远程服务器连接失败，错误码%@",dic[@"status"]];
-//  } else {
-//    text = error.localizedDescription;
-//  }
-
     failure(@"请求失败");
 }
-
-//- (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
-//  if (jsonString == nil) {
-//    return nil;
-//  }
-//  NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-//  NSError *err;
-//  NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
-//                                                      options:NSJSONReadingMutableContainers
-//                                                        error:&err];
-//  if(err) {
-//    NSLog(@"json解析失败：%@",err);
-//    return nil;
-//  }
-//  return dic;
-//}
 
 @end
