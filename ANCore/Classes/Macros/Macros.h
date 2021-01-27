@@ -100,14 +100,13 @@ static inline BOOL ph_dictionaryContainsKey(NSDictionary *dict, NSString *key) {
  *  字体适配
  */
 static inline CGFloat AdaptSize(CGFloat fontSize){
-   if (iPhoneWidth==375){
+    if (iPhoneWidth < 414) {
         return fontSize;
     } else if (iPhoneWidth == 414){
         return fontSize*1.1;
-    } else if (iPhoneWidth < 375) {
-        return fontSize*0.9;
+    } else {
+        return fontSize*1.2;
     }
-    return fontSize*1.2;
 }
 
 #endif /* Macros_h */
