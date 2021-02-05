@@ -36,7 +36,9 @@ typedef void(^Completion)(NSString *first);
 //    }];
     [request netRequestWithSuccess:^(id  _Nonnull response) {
         
-    } failure:^(NSString * _Nonnull msg) {
+    } error:^{
+        
+    }  failure:^(NSString * _Nonnull msg) {
         
     }];
 }

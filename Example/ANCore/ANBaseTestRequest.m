@@ -19,7 +19,8 @@
     return params;
 }
 
-- (void)successWithResponse:(id)response success:(void (^)(id _Nonnull))success {
+- (void)successWithResponse:(id)response success:(void (^)(id _Nonnull))success error:(nonnull void (^)(void))error
+{
     success(@"");
 }
 

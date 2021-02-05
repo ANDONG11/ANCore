@@ -39,7 +39,9 @@
 }
 
 #pragma mark - 网络请求
-- (void)netRequestWithSuccess:(void (^)(id response))success failure:(void (^)(NSString *msg))failure {
+- (void)netRequestWithSuccess:(void (^)(id response))success
+                        error:(void(^)(void))error
+                      failure:(void (^)(NSString *msg))failure {
     NSString *urlString = [self requestUrl];
     urlString = [[self baseUrl] stringByAppendingString:urlString];
     [ANBaseRequest netRequestWithMethodType:[self requestMethodType]
@@ -47,7 +49,7 @@
                                      params:[self requestArgument]
                                     headers:[self requestHeaderFieldValueDictionary]
                                     success:^(NSURLSessionTask * _Nullable task, id  _Nullable response) {
-        [self successWithResponse:response success:success];
+        [self successWithResponse:response success:success error:error];
     } failure:^(NSURLSessionTask * _Nullable task, NSError * _Nullable error) {
         [self errorWithResponse:error failure:failure];
     }];
@@ -56,6 +58,7 @@
 #pragma mark - 上传图片或视频
 - (void)netRequestUploadMedia:(UploadMediaType)mediaType
                       success:(void (^)(id response))success
+                        error:(void(^)(void))error
                      progress:(void (^)(NSProgress *progress))progressHandle
                       failure:(void (^)(NSString * msg))failure {
     NSString *urlString = [self requestUrl];
@@ -108,7 +111,7 @@
         }
         
     } success:^(NSURLSessionTask * _Nullable task, id  _Nullable response) {
-        [self successWithResponse:response success:success];
+        [self successWithResponse:response success:success error:error];
     } failure:^(NSURLSessionTask * _Nullable task, NSError * _Nullable error) {
         [self errorWithResponse:error failure:failure];
     } progress:^(NSProgress * _Nonnull progress) {
@@ -127,10 +130,8 @@
 }
 
 #pragma mark - 网络请求成功返回
-- (void)successWithResponse:(id)response success:(void (^)(id))success {
-    NSData *data = response;
-    NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    success(responseDic);
+- (void)successWithResponse:(id)response success:(void (^)(id))success error:(void (^)(void))error {
+
 }
 
 #pragma mark - 网络请求失败

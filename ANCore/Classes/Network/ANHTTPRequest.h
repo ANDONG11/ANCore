@@ -50,17 +50,22 @@ typedef enum : NSUInteger {
 
 /// 网络请求
 /// @param success 成功
-/// @param failure 失败
-- (void)netRequestWithSuccess:(void (^)(id response))success failure:(void (^)(NSString *msg))failure;
+/// @param error   服务器返回错误
+/// @param failure 网络请求失败
+- (void)netRequestWithSuccess:(void (^)(id response))success
+                        error:(void(^)(void))error
+                      failure:(void (^)(NSString *msg))failure;
 
 
 /// 上传多媒体类型（图片，视频）
 /// @param mediaType 当为图片时需要传images参数 当为视频时需要传filePathURL参数
 /// @param success 成功
+/// @param error   服务器返回错误
 /// @param progressHandle 进度
 /// @param failure 失败
 - (void)netRequestUploadMedia:(UploadMediaType)mediaType
                       success:(void (^)(id response))success
+                        error:(void(^)(void))error
                      progress:(void (^)(NSProgress *progress))progressHandle
                       failure:(void (^)(NSString * msg))failure;
 
@@ -68,7 +73,8 @@ typedef enum : NSUInteger {
 /// 网络请求成功
 /// @param response 返回数据
 /// @param success 回调
-- (void)successWithResponse:(id)response success:(void (^)(id))success;
+/// @param error   服务器返回错误
+- (void)successWithResponse:(id)response  success:(void (^)(id))success error:(void(^)(void))error;
 
 
 /// 网络请求失败
