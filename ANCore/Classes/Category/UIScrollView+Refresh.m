@@ -30,7 +30,7 @@
 /// 上拉加载
 - (void)footerWithRefreshingBlock:(void(^)(void))block {
     
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         if (block) block();
     }];
     [footer setTitle:@"上拉加载" forState:MJRefreshStateIdle];
