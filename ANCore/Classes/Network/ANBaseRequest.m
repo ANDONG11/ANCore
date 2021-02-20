@@ -111,4 +111,12 @@
 }
 
 
+/// 取消网络请求
++ (void)cancelRequest {
+    ANHTTPSessionManager *manager = [ANHTTPSessionManager sharedInstance];
+    if ([manager.tasks count] > 0) {
+        [manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    }
+}
+
 @end

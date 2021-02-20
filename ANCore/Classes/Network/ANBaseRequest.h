@@ -10,34 +10,34 @@
 #import "ANHTTPSessionManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
-// 请求成功回调
+/// 请求成功回调
 typedef void(^RequestManagerSuccessHandle)(NSURLSessionTask * _Nullable task, id _Nullable response);
 
-// 请求失败回调
+/// 请求失败回调
 typedef void(^RequestManagerFailureHandle)(NSURLSessionTask * _Nullable task, NSError * _Nullable error);
 
-// 进度回调
+/// 进度回调
 typedef void (^RequestManagerProgressHandle)(NSProgress * _Nonnull progress);
 
-// 请求方式
+/// 请求方式
 typedef enum : NSUInteger {
   
-  // GET请求
+  /// GET请求
   RequestMethodTypeGET,
   
-  // POST请求
+  /// POST请求
   RequestMethodTypePOST,
   
-  // PUT请求
+  /// PUT请求
   RequestMethodTypePUT,
   
-  // DELETE请求
+  /// DELETE请求
   RequestMethodTypeDELETE,
   
-  // PATCH请求
+  /// PATCH请求
   RequestMethodTypePATCH,
   
-  // HEAD请求
+  /// HEAD请求
   RequestMethodTypeHEAD
   
 } RequestMethodType;
@@ -87,7 +87,13 @@ typedef enum : NSUInteger {
  @param URLString 请求地址
  @param successHandle 正确回调
  */
-+ (void)netRequestDownloadFileWithURLString:(NSString *_Nullable)URLString successHandle:(RequestManagerSuccessHandle _Nullable )successHandle;
++ (void)netRequestDownloadFileWithURLString:(NSString *_Nullable)URLString
+                              successHandle:(RequestManagerSuccessHandle _Nullable )successHandle;
+
+/// 取消网络请求
++ (void)cancelRequest;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

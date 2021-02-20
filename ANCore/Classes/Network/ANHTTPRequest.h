@@ -69,6 +69,8 @@ typedef enum : NSUInteger {
                      progress:(void (^)(NSProgress *progress))progressHandle
                       failure:(void (^)(NSString * msg))failure;
 
+/// 取消网络请求
+- (void)netRequestCancel;
 
 /// 网络请求成功
 /// @param response 返回数据

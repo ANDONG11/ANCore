@@ -129,6 +129,11 @@
     return [formatter stringFromDate:[NSDate date]];
 }
 
+#pragma mark -取消网络请求
+- (void)netRequestCancel {
+    [ANBaseRequest cancelRequest];
+}
+
 #pragma mark - 网络请求成功返回
 - (void)successWithResponse:(id)response success:(void (^)(id))success error:(void (^)(void))error {
 
