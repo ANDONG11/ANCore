@@ -27,20 +27,8 @@
     return self;
 }
 
-+ (ANAlert *)shareManager {
-    
-    static ANAlert *alertManager;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        alertManager = [[ANAlert alloc] init];
-    });
-    
-    return alertManager;
-}
-
 + (void)alertShowWithParams:(void(^)(ANAlert *alert))params handler:(ANAlertHandler)handler {
-    ANAlert *alert = [ANAlert shareManager];
+    ANAlert *alert = [[ANAlert alloc] init];
     params(alert);
     [alert privateShowWithHandler:handler];
 }
