@@ -82,7 +82,7 @@
     }
 
     
-    [ANBaseRequest netRequestPOSTImageWithURLString:[self requestUrl]
+    [ANBaseRequest netRequestPOSTImageWithURLString:urlString
                                              params:[self requestArgument]
                                             headers:[self requestHeaderFieldValueDictionary]
                                            formData:^(id<AFMultipartFormData> _Nonnull formData) {
