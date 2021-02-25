@@ -10,7 +10,7 @@
 
 @implementation ANHTTPRequest
 
--(NSString *)baseUrl {
+- (NSString *)baseUrl {
     return @"";
 }
 
@@ -30,11 +30,15 @@
     return nil;
 }
 
--(NSArray *)images {
+- (NSArray *)images {
     return @[];
 }
 
--(NSURL *)filePathURL {
+- (CGFloat)compressionQuality {
+    return 1.0;
+}
+
+- (NSURL *)filePathURL {
     return [NSURL URLWithString:@""];
 }
 
@@ -89,19 +93,16 @@
         switch (mediaType) {
             case UploadMediaImageType:
             {
+                /// 图片上传
                 for (UIImage *image in [self images]) {
-                    NSData *imageData;
-                    if (UIImagePNGRepresentation(image) == nil) {
-                        imageData = UIImageJPEGRepresentation(image, 0.8);
-                    } else {
-                        imageData = UIImagePNGRepresentation(image);
-                    }
-                    [formData appendPartWithFileData:imageData name:@"image" fileName:[[self fileName] stringByAppendingString:@".png"] mimeType:@"image/png"];
+                    NSData *imageData = UIImageJPEGRepresentation(image, [self compressionQuality]);
+                    [formData appendPartWithFileData:imageData name:@"image" fileName:[[self fileName] stringByAppendingString:@".jpeg"] mimeType:@"image/jpeg"];
                 }
             }
                 break;
             case UploadMediaVideoType:
             {
+                /// 视频上传
                 [formData appendPartWithFileURL:[self filePathURL] name:@"video" fileName:[self fileName] mimeType:@"application/octet-stream" error:nil];
             }
                 break;

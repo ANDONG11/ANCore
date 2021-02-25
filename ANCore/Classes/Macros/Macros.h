@@ -9,10 +9,13 @@
 #ifndef Macros_h
 #define Macros_h
 
+/// 获取app的info.plist详细信息
+#define dVersion       [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]  /// build 版本号
+#define dShortVersion  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] /// version 版本号
+#define dPackage       [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"] /// 包名
+#define dDisplayName   [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"] /// 应用显示的名称
+#define dBundleName    [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"] /// 工程名
 
-#define dSCREEN_WIDTH     ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.width)
-#define dSCREENH_HEIGHT ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.height)
-#define dSCREEN_SIZE     ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?CGSizeMake([UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale,[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale):[UIScreen mainScreen].bounds.size)
 
 /// iPhone X适配
 #define KStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height             /// 获取状态栏的高度
@@ -42,15 +45,18 @@
 #define dSCREENH_AVERAGE_WIDTH  [UIScreen mainScreen].bounds.size.width/standardWidth
 
 
-/// 字体适配
 #define SCALE_SIZE(value)        AdaptSize(value)
+
+/// 字体
 #define FONTSIZE_LIGHT(value)    [UIFont systemFontOfSize:AdaptSize(value) weight:UIFontWeightLight]
 #define FONTSIZE_BLOD(value)     [UIFont systemFontOfSize:AdaptSize(value) weight:UIFontWeightBold]
 #define FONTSIZE_REGULAR(value)  [UIFont systemFontOfSize:AdaptSize(value) weight:UIFontWeightRegular]
 #define FONTSIZE_MEDIUM(value)   [UIFont systemFontOfSize:AdaptSize(value) weight:UIFontWeightMedium]
 
-#define kScaleFit (BR_IS_IPHONE ? ((iPhoneWidth < iPhoneHeight) ? iPhoneWidth / 375.0f : iPhoneWidth / 812.0f) : 1.1f)
+#define dScaleFit (BR_IS_IPHONE ? ((iPhoneWidth < iPhoneHeight) ? iPhoneWidth / 375.0f : iPhoneWidth / 812.0f) : 1.1f)
 
+/// 线的高度
+#define dSINGLE_LINE_WIDTH          (1 / [UIScreen mainScreen].scale)
 
 /// 获取系统版本
 #define dIOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
@@ -78,17 +84,20 @@
 
 
 
-#ifndef PHSharedInstance
-#define PHSharedInstance(block) \
-{ \
-static dispatch_once_t predicate = 0; \
-static id sharedInstance = nil; \
-dispatch_once(&predicate, ^{ sharedInstance = block(); }); \
-return sharedInstance; \
-}
-#endif
+#define dSINGLETON_FOR_CLASS_HEADER(classname) \
+\
++ (classname *)sharedInstance;
 
-#define kPHSystemVersion [[[UIDevice currentDevice] systemVersion] doubleValue]
+#define dSINGLETON_FOR_CLASS(classname) \
+\
+static classname *shared##classname = nil; \
+\
++ (classname *)sharedInstance \
+{ \
+static dispatch_once_t pred; \
+dispatch_once(&pred, ^{ shared##classname = [[classname alloc] init]; }); \
+return shared##classname; \
+}
 
 
 static inline BOOL ph_dictionaryContainsKey(NSDictionary *dict, NSString *key) {

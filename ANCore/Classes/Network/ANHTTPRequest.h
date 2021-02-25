@@ -24,10 +24,10 @@ typedef enum : NSUInteger {
 
 @interface ANHTTPRequest : NSObject
 
-/// 请求类型
+/// 请求类型默认post
 - (RequestMethodType)requestMethodType;
 
-/// 请求基础地址
+/// base请求地址
 - (NSString *)baseUrl;
 
 /// 请求地址
@@ -36,15 +36,21 @@ typedef enum : NSUInteger {
 /// 请求参数
 - (nullable id)requestArgument;
 
-/// 请求头参数
+/// 请求头
 - (nullable NSDictionary<NSString *, NSString *> *)requestHeaderFieldValueDictionary;
 
 
-/// 上传图片时图片数组
+/// 图片数组(可上传多张图片)
+/// 上传图片时必传参数
 - (NSArray *)images;
 
 
-/// 上传视频时视频地址
+/// 上传图片的质量 默认为1
+- (CGFloat)compressionQuality;
+
+
+/// 视频地址
+/// 上传视频时必传参数
 - (NSURL *)filePathURL;
 
 
@@ -72,16 +78,19 @@ typedef enum : NSUInteger {
 /// 取消网络请求
 - (void)netRequestCancel;
 
-/// 网络请求成功
+
+
+
+/// 网络请求成功（子类需重写此方法）
 /// @param response 返回数据
-/// @param success 回调
+/// @param success 成功回调
 /// @param error   服务器返回错误
 - (void)successWithResponse:(id)response  success:(void (^)(id))success error:(void(^)(void))error;
 
 
-/// 网络请求失败
-/// @param error 失败
-/// @param failure 回调
+/// 网络请求失败（子类需重写此方法）
+/// @param error 错误信息
+/// @param failure 失败回调
 - (void)errorWithResponse:(NSError *)error failure:(void (^)(NSString *))failure;
 
 @end
