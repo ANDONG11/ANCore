@@ -55,6 +55,9 @@
                                     success:^(NSURLSessionTask * _Nullable task, id  _Nullable response) {
         [self successWithResponse:response success:success error:error];
     } failure:^(NSURLSessionTask * _Nullable task, NSError * _Nullable error) {
+        if (task.error.code == NSURLErrorCancelled) {
+            return;
+        }
         [self errorWithResponse:error failure:failure];
     }];
 }
@@ -114,6 +117,9 @@
     } success:^(NSURLSessionTask * _Nullable task, id  _Nullable response) {
         [self successWithResponse:response success:success error:error];
     } failure:^(NSURLSessionTask * _Nullable task, NSError * _Nullable error) {
+        if (task.error.code == NSURLErrorCancelled) {
+            return;
+        }
         [self errorWithResponse:error failure:failure];
     } progress:^(NSProgress * _Nonnull progress) {
         dispatch_async(dispatch_get_main_queue(), ^{
