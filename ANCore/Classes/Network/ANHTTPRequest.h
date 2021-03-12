@@ -27,14 +27,18 @@ typedef enum : NSUInteger {
 /// 请求类型默认post
 - (RequestMethodType)requestMethodType;
 
+
 /// base请求地址
 - (NSString *)baseUrl;
+
 
 /// 请求地址
 - (NSString *)requestUrl;
 
+
 /// 请求参数
 - (nullable id)requestArgument;
+
 
 /// 请求头
 - (nullable NSDictionary<NSString *, NSString *> *)requestHeaderFieldValueDictionary;
@@ -74,6 +78,17 @@ typedef enum : NSUInteger {
                         error:(void(^)(void))error
                      progress:(void (^)(NSProgress *progress))progressHandle
                       failure:(void (^)(NSString * msg))failure;
+
+/// 下载
+/// @param success 成功
+/// @param error 服务器错误
+/// @param progressHandle 进度
+/// @param failure 网络请求失败
+- (void)netRequestDownloadFileWithSuccess:(void (^)(id response))success
+                                    error:(void(^)(void))error
+                                 progress:(void (^)(NSProgress *progress))progressHandle
+                                  failure:(void (^)(NSString *msg))failure;
+
 
 /// 取消网络请求
 - (void)netRequestCancel;

@@ -11,15 +11,7 @@
 
 @implementation ANBaseRequest
 
-/**
- 请求数据
- 
- @param methodType 请求方式
- @param URLString URL地址
- @param params 参数
- @param success 正确回调
- @param failure 失败回调
- */
+#pragma mark - 网络请求
 + (void)netRequestWithMethodType:(RequestMethodType)methodType
                        URLString:(NSString *)URLString
                           params:(id)params
@@ -56,14 +48,7 @@
 }
 
 
-/**
- 上传多媒体类型
- 
- @param URLString 请求地址
- @param params 参数
- @param success 正确回调
- @param failure 失败回调
- */
+#pragma mark - 上传多媒体类型（图片，视频）
 + (void)netRequestPOSTImageWithURLString:(NSString *)URLString
                                   params:(id)params
                                  headers:(nullable NSDictionary <NSString *, NSString *> *)headers
@@ -77,36 +62,15 @@
 }
 
 
-/**
- 下载文件
- 
- @param URLString 请求地址
- @param successHandle 正确回调
- */
-+ (void)netRequestDownloadFileWithURLString:(NSString *)URLString successHandle:(RequestManagerSuccessHandle)successHandle {
+#pragma mark - 下载
++ (void)netRequestDownloadFileWithURLString:(NSString *)URLString
+                                   progress:(RequestManagerProgressHandle)progress
+                                destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
+                          completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler {
 
     ANHTTPSessionManager *manager = [ANHTTPSessionManager sharedInstance];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
-    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
-    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        //    NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        //    NSString *documentsDirectory = [paths objectAtIndex:0];
-        //    NSString *inputPath = [documentsDirectory stringByAppendingPathComponent:@"/model.scnassets.zip"];
-        //    NSError *zipError = nil;
-        
-        //    [SSZipArchive unzipFileAtPath:inputPath toDestination:documentsDirectory overwrite:YES password:nil error:&zipError];
-        //
-        //    if( zipError ){
-        //      NSLog(@"Something went wrong while unzipping: %@", zipError.debugDescription);
-        //    }else {
-        //      NSLog(@"%@",inputPath);
-        //      NSError * error = nil ;
-        //      [[NSFileManager defaultManager ] removeItemAtPath :inputPath error :&error];
-        //      successHandle(nil,nil);
-        //    }
-    }];
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:progress destination:destination completionHandler:completionHandler];
     [downloadTask resume];
 }
 

@@ -83,12 +83,16 @@ typedef enum : NSUInteger {
 
 /**
  下载文件
-
+ 
  @param URLString 请求地址
- @param successHandle 正确回调
+ @param progress 进度
+ @param destination 为确定下载文件的目的地而执行的块对象
+ @param completionHandler 任务完成时要执行的块。此块没有返回值，并接受三个参数：服务器响应、下载文件的路径以及描述发生的网络或解析错误（如果有）的错误。
  */
-+ (void)netRequestDownloadFileWithURLString:(NSString *_Nullable)URLString
-                              successHandle:(RequestManagerSuccessHandle _Nullable )successHandle;
++ (void)netRequestDownloadFileWithURLString:(NSString *)URLString
+                                   progress:(RequestManagerProgressHandle)progress
+                                destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
+                          completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler;
 
 /// 取消网络请求
 + (void)cancelRequest;

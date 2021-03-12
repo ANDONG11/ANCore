@@ -10,34 +10,42 @@
 
 @implementation ANHTTPRequest
 
+#pragma mark - 网络请求基础地址
 - (NSString *)baseUrl {
     return @"";
 }
 
+#pragma mark - 请求地址
 - (NSString *)requestUrl {
     return @"";
 }
 
+#pragma mark - 请求类型
 - (RequestMethodType)requestMethodType {
     return RequestMethodTypePOST;
 }
 
+#pragma mark - 参数
 - (id)requestArgument {
     return @{};
 }
 
+#pragma mark - 请求头
 - (NSDictionary<NSString *,NSString *> *)requestHeaderFieldValueDictionary {
     return nil;
 }
 
+#pragma mark - 上传多媒体类型-图片 必传参数图片数组
 - (NSArray *)images {
     return @[];
 }
 
+#pragma mark - 上传多媒体类型-图片 图片上传质量
 - (CGFloat)compressionQuality {
     return 1.0;
 }
 
+#pragma mark - 上传多媒体类型-视频 必传参数视频地址
 - (NSURL *)filePathURL {
     return [NSURL URLWithString:@""];
 }
@@ -129,8 +137,42 @@
     }];
 }
 
+#pragma mark - 下载
+- (void)netRequestDownloadFileWithSuccess:(void (^)(id response))success
+                                    error:(void(^)(void))error
+                                 progress:(void (^)(NSProgress *progress))progressHandle
+                                  failure:(void (^)(NSString *msg))failure {
+    NSString *urlString = [self requestUrl];
+    urlString = [[self baseUrl] stringByAppendingString:urlString];
+    [ANBaseRequest netRequestDownloadFileWithURLString:urlString progress:^(NSProgress * _Nonnull progress) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            progressHandle(progress);
+            NSLog(@"%f",progress.fractionCompleted);
+        });
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nonnull filePath, NSError * _Nonnull error) {
+//            NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//            NSString *documentsDirectory = [paths objectAtIndex:0];
+//            NSString *inputPath = [documentsDirectory stringByAppendingPathComponent:@"/model.scnassets.zip"];
+//            NSError *zipError = nil;
+//
+//            [SSZipArchive unzipFileAtPath:inputPath toDestination:documentsDirectory overwrite:YES password:nil error:&zipError];
+//
+//            if( zipError ){
+//              NSLog(@"Something went wrong while unzipping: %@", zipError.debugDescription);
+//            }else {
+//              NSLog(@"%@",inputPath);
+//              NSError * error = nil ;
+//              [[NSFileManager defaultManager ] removeItemAtPath :inputPath error :&error];
+//              successHandle(nil,nil);
+//            }
+    }];
+}
+
 - (NSString *)fileName {
-    // 设置时间格式(给个时间便于区分)
+    /// 设置时间格式(给个时间便于区分)
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyyMMddHHmmss";
     return [formatter stringFromDate:[NSDate date]];
@@ -141,14 +183,14 @@
     [ANBaseRequest cancelRequest];
 }
 
-#pragma mark - 网络请求成功返回
+#pragma mark - 网络请求成功返回 子类需重写此方法
 - (void)successWithResponse:(id)response success:(void (^)(id))success error:(void (^)(void))error {
 
 }
 
-#pragma mark - 网络请求失败
+#pragma mark - 网络请求失败 子类需重写此方法
 - (void)errorWithResponse:(NSError *)error failure:(void (^)(NSString *))failure {
-    failure(@"请求失败");
+    
 }
 
 @end
