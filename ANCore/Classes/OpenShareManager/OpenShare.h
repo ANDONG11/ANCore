@@ -1,0 +1,199 @@
+//
+//  OpenShare.h
+//  ANCore
+//
+//  Created by dong an on 2021/3/25.
+//  Copyright © 2021 andong. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ 分享类型，除了news以外，还可能是video／audio／app等。
+ */
+typedef enum : NSUInteger {
+    OSMultimediaTypeNews,
+    OSMultimediaTypeAudio,
+    OSMultimediaTypeVideo,
+    OSMultimediaTypeApp,
+    OSMultimediaTypeFile,
+    OSMultimediaTypeMiniApp,
+    OSMultimediaTypeUndefined
+} OSMultimediaType;
+
+typedef enum : NSUInteger {
+    OSMINIAppRelease,
+    OSMINIAppTest,
+    OSMINIAppPreview
+} OSMINIAppType;
+
+/**
+ *  OSMessage保存分享消息数据。
+ */
+@interface OSMessage : NSObject
+@property NSString* title;
+@property NSString* desc;
+@property NSString* link;
+@property UIImage *image;
+@property UIImage *thumbnail;
+@property OSMultimediaType multimediaType;
+/// for 微信
+/// 扩展信息 （app自己的扩展消息，当从微信打开app的时候，会传给app）
+@property NSString* extInfo;
+@property NSString* mediaDataUrl;
+@property NSString* fileExt;
+/// 微信分享gif/文件
+@property (nonatomic, strong) NSData *file;
+
+/// for 微信小程序
+@property NSString* path;
+@property BOOL withShareTicket;
+@property OSMINIAppType miniAppType;
+
+/**
+ *  判断emptyValueForKeys的value都是空的，notEmptyValueForKeys的value都不是空的。
+ *
+ *  @param emptyValueForKeys    空值的key
+ *  @param notEmptyValueForKeys 非空值的key
+ *
+ *  @return YES／NO
+ */
+-(BOOL)isEmpty:(NSArray*)emptyValueForKeys AndNotEmpty:(NSArray*)notEmptyValueForKeys;
+
+@end
+
+
+typedef void (^shareSuccess)(OSMessage * message);
+typedef void (^shareFail)(OSMessage * message,NSError *error);
+typedef void (^authSuccess)(NSDictionary * message);
+typedef void (^authFail)(NSDictionary * message,NSError *error);
+typedef void (^paySuccess)(NSDictionary * message);
+typedef void (^payFail)(NSDictionary * message,NSError *error);
+
+typedef void (^miniAppSuccess)(NSDictionary * message);
+
+/**
+ 粘贴板数据编码方式，目前只有两种:
+ 1. [NSKeyedArchiver archivedDataWithRootObject:data];
+ 2. [NSPropertyListSerialization dataWithPropertyList:data format:NSPropertyListBinaryFormat_v1_0 options:0 error:&err];
+ */
+typedef enum : NSUInteger {
+    OSPboardEncodingKeyedArchiver,
+    OSPboardEncodingPropertyListSerialization,
+} OSPboardEncoding;
+
+
+@interface OpenShare : NSObject
+
++ (OpenShare *)shared;
+
+@property (nonatomic, copy) authSuccess authSuccess;
+@property (nonatomic, copy) authFail authFail;
+
+- (void)addWebViewByURL:(NSURL *)URL;
+
+/**
+ *  设置平台的key
+ *
+ *  @param platform 平台名称
+ *  @param key      NSDictionary格式的key
+ */
++ (void)set:(NSString*)platform Keys:(NSDictionary *)key;
+/**
+ *  获取平台的key
+ *
+ *  @param platform 平台名称，每个category自行决定。
+ *
+ *  @return 平台的key(NSDictionary或nil)
+ */
++ (NSDictionary *)keyFor:(NSString*)platform;
+
+/**
+ *  通过UIApplication打开url
+ *
+ *  @param url 需要打开的url
+ */
++ (void)openURL:(NSString*)url;
+
++ (BOOL)canOpen:(NSString*)url;
+
+/**
+ *  处理被打开时的openurl
+ *
+ *  @param url openurl
+ *
+ *  @return 如果能处理，就返回YES。够则返回NO
+ */
++ (BOOL)handleOpenURL:(NSURL*)url;
+
++ (shareSuccess)shareSuccessCallback;
+
++ (shareFail)shareFailCallback;
+
++ (void)setShareSuccessCallback:(shareSuccess)suc;
+
++ (void)setShareFailCallback:(shareFail)fail;
+
++ (NSURL*)returnedURL;
+
++ (NSDictionary*)returnedData;
+
++ (void)setReturnedData:(NSDictionary*)retData;
+
++ (NSMutableDictionary *)parseUrl:(NSURL*)url;
+
++ (void)setMessage:(OSMessage*)msg;
+
++ (OSMessage*)message;
+
++ (BOOL)beginShare:(NSString*)platform Message:(OSMessage*)msg Success:(shareSuccess)success Fail:(shareFail)fail;
++ (BOOL)beginAuth:(NSString*)platform Success:(authSuccess)success Fail:(authFail)fail;
+
++ (NSString*)base64Encode:(NSString *)input;
++ (NSString*)base64Decode:(NSString *)input;
+
+/// 获取项目名称
++ (NSString*)CFBundleDisplayName;
+
+/// 获取bundleId
++ (NSString*)CFBundleIdentifier;
+
++ (void)setGeneralPasteboard:(NSString*)key Value:(NSDictionary*)value encoding:(OSPboardEncoding)encoding;
++ (NSDictionary*)generalPasteboardData:(NSString*)key encoding:(OSPboardEncoding)encoding;
++ (NSString*)base64AndUrlEncode:(NSString *)string;
++ (NSString*)urlDecode:(NSString*)input;
+
+/// json字符串转字典
+/// @param jsonString json字符串
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
+
+/**
+ *  截屏功能。via：http://stackoverflow.com/a/8017292/3825920
+ *
+ *  @return 对当前窗口截屏。（可能需要）
+ */
++ (UIImage *)screenshot;
+
++ (authSuccess)authSuccessCallback;
++ (authFail)authFailCallback;
+
++ (void)setPaySuccessCallback:(paySuccess)suc;
+
++ (void)setPayFailCallback:(payFail)fail;
+
++ (paySuccess)paySuccessCallback;
++ (payFail)payFailCallback;
+
++ (miniAppSuccess)miniAppSuccessCallback;
++ (void)setMiniAppSuccess:(miniAppSuccess)callback;
+
+
++ (NSData *)dataWithImage:(UIImage *)image;
++ (NSData *)dataWithImage:(UIImage *)image scale:(CGSize)size;
+
+@end
+
+NS_ASSUME_NONNULL_END

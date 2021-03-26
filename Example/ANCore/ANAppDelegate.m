@@ -11,9 +11,9 @@
 
 @implementation ANAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [OpenShare connectWeiboWithAppKey:@"3841559007"];
+    [OpenShare connectQQWithAppId:@"1109593261"];
     return YES;
 }
 

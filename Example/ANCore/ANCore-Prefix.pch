@@ -14,6 +14,7 @@
     @import UIKit;
     @import Foundation;
 #import <ANCore.h>
+#import "OpenShareHeader.h"
 
 
 #endif
