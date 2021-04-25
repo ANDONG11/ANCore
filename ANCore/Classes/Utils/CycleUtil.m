@@ -25,23 +25,23 @@
 
 #pragma mark - 循环创建多行多列view  在block回调中创建view
 - (void)cycleWithCount:(NSInteger)count cycleViewBlock:(CycleViewBlock)block {
-    /// 配置信息
+    
     
     NSInteger column    = self.column;
     /// 根据列数和总数算出行数
     NSInteger row       = (count%column==0)?count/column:count/column+1;
-    /// 行间距
-    CGFloat lineSpace   = self.lineSpace;
     /// 列间距
-    CGFloat columnSpace = self.columnSpace;
+    CGFloat columnSpace = self.isSquare ? ([UIScreen mainScreen].bounds.size.width-self.height*column)/(column+1) : self.columnSpace;
+    /// 行间距
+    CGFloat lineSpace   = self.isSquare ? columnSpace: self.lineSpace;
     /// 距左间距
-    CGFloat leftSpace   = self.leftSpace;
+    CGFloat leftSpace   = self.isSquare ? columnSpace: self.leftSpace;
     /// 距上间距
     CGFloat topSpace    = self.topSpace;
     /// 高度
     CGFloat height      = self.height;
     /// 宽度
-    CGFloat width       = ([UIScreen mainScreen].bounds.size.width-leftSpace*2-columnSpace*(column-1))/column;
+    CGFloat width       = self.isSquare ? height: ([UIScreen mainScreen].bounds.size.width-leftSpace*2-columnSpace*(column-1))/column;
     
 
     for (int i = 0; i < row; i++) {
@@ -57,11 +57,10 @@
                                          height);
             
                 block(index,rect);
-                
-
             }
         }
     }
 }
+
 
 @end
