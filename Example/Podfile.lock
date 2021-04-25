@@ -14,26 +14,26 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - ANCore (0.3.6):
-    - ANCore/Category (= 0.3.6)
-    - ANCore/CrashGuard (= 0.3.6)
-    - ANCore/Macros (= 0.3.6)
-    - ANCore/Network (= 0.3.6)
-    - ANCore/OpenShareManager (= 0.3.6)
-    - ANCore/Router (= 0.3.6)
-    - ANCore/UI (= 0.3.6)
-    - ANCore/Utils (= 0.3.6)
-  - ANCore/Category (0.3.6):
+  - ANCore (0.4.1):
+    - ANCore/Category (= 0.4.1)
+    - ANCore/CrashGuard (= 0.4.1)
+    - ANCore/Macros (= 0.4.1)
+    - ANCore/Network (= 0.4.1)
+    - ANCore/OpenShareManager (= 0.4.1)
+    - ANCore/Router (= 0.4.1)
+    - ANCore/UI (= 0.4.1)
+    - ANCore/Utils (= 0.4.1)
+  - ANCore/Category (0.4.1):
     - MJRefresh
-  - ANCore/CrashGuard (0.3.6)
-  - ANCore/Macros (0.3.6)
-  - ANCore/Network (0.3.6):
+  - ANCore/CrashGuard (0.4.1)
+  - ANCore/Macros (0.4.1)
+  - ANCore/Network (0.4.1):
     - AFNetworking
-  - ANCore/OpenShareManager (0.3.6)
-  - ANCore/Router (0.3.6)
-  - ANCore/UI (0.3.6):
+  - ANCore/OpenShareManager (0.4.1)
+  - ANCore/Router (0.4.1)
+  - ANCore/UI (0.4.1):
     - ANCore/Category
-  - ANCore/Utils (0.3.6)
+  - ANCore/Utils (0.4.1)
   - MJRefresh (3.5.0)
 
 DEPENDENCIES:
@@ -50,7 +50,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  ANCore: 9a9df6b24804ff2d339fe5ed6f0f6fb0c9c1ebc4
+  ANCore: fb6fec575bfee9ea10077c28f9ab4f65ce4c9898
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
 
 PODFILE CHECKSUM: a2cf66617e1d96ffb415ae2e62a3d5b80b31adee
