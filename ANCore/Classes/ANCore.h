@@ -22,6 +22,7 @@
 #import "NSObject+CurrentController.h"
 #import "UIScrollView+Refresh.h"
 #import "UIColor+StringToRGB.h"
+#import "UIView+CornerRadius.h"
 
 /// UI
 #import "ANButton.h"
