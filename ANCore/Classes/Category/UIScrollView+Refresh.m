@@ -42,6 +42,14 @@
     self.mj_footer = footer;
 }
 
+/// 上拉自动加载
+- (void)footerWithAutoRefreshingBlock:(void(^)(void))block {
+    MJRefreshAutoFooter *footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        if (block) block();
+    }];
+    self.mj_footer = footer;
+}
+
 /// 结束刷新数据
 - (void)endRefreshing {
     [self headerEndRefreshing];

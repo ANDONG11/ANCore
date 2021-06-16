@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param block 回调
 - (void)footerWithRefreshingBlock:(void(^)(void))block;
 
+/// 上拉自动加载
+/// @param block 回调
+- (void)footerWithAutoRefreshingBlock:(void(^)(void))block;
+
 /// 结束刷新数据
 - (void)endRefreshing;
 
