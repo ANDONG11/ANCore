@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.4.4'
+  s.version          = '0.4.5'
   s.summary          = '基础框架'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.

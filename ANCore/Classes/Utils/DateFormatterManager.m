@@ -50,6 +50,20 @@ static NSDateFormatter *dateFormatter = nil;
     return confromTimespStr;
 }
 
+/// 将时间转为时间戳
+/// @param time 时间
++ (NSString *)timeSwitchTimestamp:(NSString *)time  {
+    
+    NSDateFormatter *formatter = [DateFormatterManager dateFormatter];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *date = [formatter dateFromString:time];
+    NSTimeInterval timeInterval = [date timeIntervalSince1970]*1000;//NSTimeInterval本身是个秒级别的double类型数值，小数点后面即毫秒数,*1000.0f即可得到毫秒级别的时间差
+    long long dTime = [[NSNumber numberWithDouble:timeInterval] longLongValue]; // 将double转为long long型
+    NSString *timeSp = [NSString stringWithFormat:@"%llu",dTime]; // 输出long long型
+    return timeSp;
+}
+
 /**
  将当前日期转化为星期
 

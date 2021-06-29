@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)timestampSwitchTime:(NSString *)timestamp dateFormatter:(NSString *)dateFormatter;
 
+
+/// 将时间转化为时间戳
+/// @param time 时间
++ (NSString *)timeSwitchTimestamp:(NSString *)time;
+
+
 /**
  将当前日期转化为星期
  
