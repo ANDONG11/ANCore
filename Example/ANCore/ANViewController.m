@@ -31,7 +31,7 @@
         [self.view addSubview:button];
     }
     
-
+    
     /// 崩溃防护
     [ANCrashGuardManager openCrashGuard];
     [ANCrashGuardManager registerCrashHandle:self];

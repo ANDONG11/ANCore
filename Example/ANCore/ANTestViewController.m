@@ -24,7 +24,7 @@ typedef void(^Completion)(NSString *first);
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     NSLog(@"name:%@",self.name);
-    
+    [ProgressHUDManager showHUDAutoHiddenWithSuccess:@"aass"];
    
 }
 

@@ -14,26 +14,36 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - ANCore (0.4.2):
-    - ANCore/Category (= 0.4.2)
-    - ANCore/CrashGuard (= 0.4.2)
-    - ANCore/Macros (= 0.4.2)
-    - ANCore/Network (= 0.4.2)
-    - ANCore/OpenShareManager (= 0.4.2)
-    - ANCore/Router (= 0.4.2)
-    - ANCore/UI (= 0.4.2)
-    - ANCore/Utils (= 0.4.2)
-  - ANCore/Category (0.4.2):
+  - ANCore (0.4.7):
+    - ANCore/Category (= 0.4.7)
+    - ANCore/CrashGuard (= 0.4.7)
+    - ANCore/Macros (= 0.4.7)
+    - ANCore/Network (= 0.4.7)
+    - ANCore/OpenShareManager (= 0.4.7)
+    - ANCore/Router (= 0.4.7)
+    - ANCore/UI (= 0.4.7)
+    - ANCore/Utils (= 0.4.7)
+    - MBProgressHUD
+  - ANCore/Category (0.4.7):
+    - MBProgressHUD
     - MJRefresh
-  - ANCore/CrashGuard (0.4.2)
-  - ANCore/Macros (0.4.2)
-  - ANCore/Network (0.4.2):
+  - ANCore/CrashGuard (0.4.7):
+    - MBProgressHUD
+  - ANCore/Macros (0.4.7):
+    - MBProgressHUD
+  - ANCore/Network (0.4.7):
     - AFNetworking
-  - ANCore/OpenShareManager (0.4.2)
-  - ANCore/Router (0.4.2)
-  - ANCore/UI (0.4.2):
+    - MBProgressHUD
+  - ANCore/OpenShareManager (0.4.7):
+    - MBProgressHUD
+  - ANCore/Router (0.4.7):
+    - MBProgressHUD
+  - ANCore/UI (0.4.7):
     - ANCore/Category
-  - ANCore/Utils (0.4.2)
+    - MBProgressHUD
+  - ANCore/Utils (0.4.7):
+    - MBProgressHUD
+  - MBProgressHUD (1.2.0)
   - MJRefresh (3.5.0)
 
 DEPENDENCIES:
@@ -42,6 +52,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - MBProgressHUD
     - MJRefresh
 
 EXTERNAL SOURCES:
@@ -50,7 +61,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  ANCore: ab1057073b2185e25c7c040eb7fdf2a539edd8f0
+  ANCore: b3d8f1ae08be42e52878ea1d47e0f5ea1d25e413
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
 
 PODFILE CHECKSUM: a2cf66617e1d96ffb415ae2e62a3d5b80b31adee

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.4.5'
+  s.version          = '0.4.7'
   s.summary          = '基础框架'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -21,8 +21,10 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '10.0'
 
-#  s.source_files = 'ANCore/Classes/**/*'
+
   s.source_files = 'ANCore/Classes/ANCore.h'
+
+  s.dependency 'MBProgressHUD'
   
   s.subspec 'Network' do |ss|
       ss.source_files = 'ANCore/Classes/Network/*.{h,m}'
