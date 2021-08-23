@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.4.7'
+  s.version          = '0.4.8'
   s.summary          = '基础框架'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -51,6 +51,7 @@ TODO: Add long description of the pod here.
   s.subspec 'UI' do |ss|
       ss.source_files = 'ANCore/Classes/UI/*.{h,m}'
       ss.dependency 'ANCore/Category'
+      ss.dependency 'ANCore/Macros'
   end
   
   s.subspec 'Macros' do |ss|
