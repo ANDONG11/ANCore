@@ -14,7 +14,7 @@
 
 @end
 
-@implementation ANTextField 
+@implementation ANTextField
 
 - (instancetype)init {
     self = [super init];
@@ -60,24 +60,32 @@
     
     UITextRange *selectedRange = textField.markedTextRange;
     UITextPosition *position = [textField positionFromPosition:selectedRange.start offset:0];
-    if (!position && _regex) {
-        NSString *text = textField.text;
-        /// 没有高亮选择的字
-        /// 过滤非汉字、字母、数字字符
+    
+    /// 高亮选择的字 直接return
+    if (selectedRange && position) {
+        return;
+    }
+
+    NSString *text = textField.text;
+    /// 如果配置了正则 则按照正则的规则过滤
+    if (_regex) {
         textField.text = [self filterCharactor:textField.text withRegex:_regex];
-        /// 限制输入位数
-        if (self.limit && textField.text.length > self.limit) {
-            textField.text = [textField.text substringToIndex:self.limit];
-            [ProgressHUDManager showHUDAutoHiddenWithWarning:[NSString stringWithFormat:@"最大只能输入%d位",self.limit]];
-        }
-        if ( ![text isEqualToString:textField.text]) {
-            return;
-        }
-        if (self.changeBlock) {
-            self.changeBlock(textField.text);
-        }
-    } else {
-        /// 有高亮选择的字 不做任何操作
+    }
+    
+    /// 限制输入位数 多余位数直接截取掉 并提示
+    if (self.limit && textField.text.length > self.limit) {
+        textField.text = [textField.text substringToIndex:self.limit];
+        [ProgressHUDManager showHUDAutoHiddenWithWarning:[NSString stringWithFormat:@"最大只能输入%d位",self.limit]];
+    }
+    
+    /// 如果文本未改变直接返回
+    if (![text isEqualToString:textField.text]) {
+        return;
+    }
+    
+    /// 文本改变回调
+    if (self.changeBlock) {
+        self.changeBlock(textField.text);
     }
 }
 
@@ -92,13 +100,15 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 
-    if (self.type != ANTextFieldDefault) {
-        /// 解决当双击切换标点时误删除正常文字 bug
-        NSString *punctuateSring = @"，。？！._@/#-";
-        if (range.length == 0 && string.length == 1 && [punctuateSring containsString:string]) {
-            return NO;
-        }
+    if (self.type == ANTextFieldDefault) {
+        return YES;
     }
+    /// 解决当双击切换标点时误删除正常文字 bug
+    NSString *punctuateSring = @"，。？！._@/#-";
+    if (range.length == 0 && string.length == 1 && [punctuateSring containsString:string]) {
+        return NO;
+    }
+    
     
     return YES;
 }
