@@ -44,8 +44,15 @@ static NSDateFormatter *dateFormatter = nil;
     
     NSDateFormatter *formatter = [DateFormatterManager dateFormatter];
     [formatter setDateFormat:dateFormatter];
+    NSDate *confromTimesp;
+    if (timestamp.length == 10) {
+        /// 10位时间戳 精确到秒级
+        confromTimesp = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue]];
+    } else {
+        /// 13位时间戳 需除以1000  精确到毫秒级
+        confromTimesp = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue] / 1000.0];
+    }
     
-    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue] / 1000.0];
     NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
     return confromTimespStr;
 }
