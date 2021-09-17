@@ -75,7 +75,10 @@
     /// 限制输入位数 多余位数直接截取掉 并提示
     if (self.limit && textField.text.length > self.limit) {
         textField.text = [textField.text substringToIndex:self.limit];
-        [ProgressHUDManager showHUDAutoHiddenWithWarning:[NSString stringWithFormat:@"最大只能输入%d位",self.limit]];
+        if (!self.promptText) {
+            self.promptText = [NSString stringWithFormat:@"最大只能输入%d位",self.limit];
+        }
+        [ProgressHUDManager showHUDAutoHiddenWithWarning:self.promptText];
     }
     
     /// 如果文本未改变直接返回
