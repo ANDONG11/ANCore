@@ -8,6 +8,7 @@
 
 #import "ANAlert.h"
 #import "NSObject+CurrentController.h"
+#import "Macros.h"
 
 @interface ANAlert () {
     UIAlertControllerStyle _privateStyle;
@@ -65,10 +66,12 @@
 
 #pragma mark - private
 - (void)privateShowWithHandler:(ANAlertHandler)handler {
-    
+    UIViewController *currentVC = [NSObject currentActiveController];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:self->_privateTitle
                                                                    message:self->_privateMessage
                                                             preferredStyle:self->_privateStyle];
+    alert.popoverPresentationController.sourceView = currentVC.view;
+    alert.popoverPresentationController.sourceRect = CGRectMake(0, iPhoneHeight - 70, iPhoneWidth, 70);
     
     for (int i = 0; i < self->_privateActionTitles.count; i ++) {
         
@@ -84,7 +87,7 @@
             [alert addAction:confimAction];
         }
     }
-    [[NSObject currentActiveController] presentViewController:alert animated:YES completion:nil];
+    [currentVC presentViewController:alert animated:YES completion:nil];
 }
 
 
