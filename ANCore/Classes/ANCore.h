@@ -14,6 +14,8 @@
 #import "ANHTTPRequest.h"
 #import "NSObject+ANSwizzleHook.h"
 #import "ANCrashGuardManager.h"
+#import "OpenShare.h"
+#import "ANURL.h"
 
 #import "Macros.h"
 #import "WeakStrongMacro.h"

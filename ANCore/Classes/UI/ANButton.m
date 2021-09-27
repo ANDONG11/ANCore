@@ -13,7 +13,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    // 这是系统的默认状态(如果是系统默认状态就不处理了)
+    /// 这是系统的默认状态(如果是系统默认状态就不处理了)
     if (self.style == ANImagePositionLeft && self.margin == 0) { return; }
     
     CGFloat image_w = self.imageView.bounds.size.width;

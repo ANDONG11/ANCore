@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANCore'
-  s.version          = '0.5.3'
+  s.version          = '0.5.5'
   s.summary          = '基础框架'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -33,6 +33,9 @@ TODO: Add long description of the pod here.
   
   s.subspec 'Router' do |ss|
       ss.source_files = 'ANCore/Classes/Router/*.{h,m}'
+      ss.subspec 'Handler' do |r|
+          r.source_files = 'ANCore/Classes/Router/Handler/*.{h,m}'
+      end
   end
   
   s.subspec 'Utils' do |ss|
