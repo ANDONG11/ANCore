@@ -91,7 +91,7 @@
 #pragma mark - 只显示菊花不显示文字
 + (void)showHUDLoading {
     [ProgressHUDManager showHUDLoading:^(ProgressHUDManager *make) {
-        make.autoHidden(YES).userInteractionEnabled(YES);
+        make.autoHidden(NO).userInteractionEnabled(YES);
     }];
 }
 
