@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 上拉自动加载
 /// @param block 回调
-- (void)footerWithAutoRefreshingBlock:(void(^)(void))block;
+- (void)autoFooterWithRefreshingBlock:(void(^)(void))block;
 
 /// 结束刷新数据
 - (void)endRefreshing;

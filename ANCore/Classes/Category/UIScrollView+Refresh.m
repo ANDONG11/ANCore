@@ -43,7 +43,7 @@
 }
 
 /// 上拉自动加载
-- (void)footerWithAutoRefreshingBlock:(void(^)(void))block {
+- (void)autoFooterWithRefreshingBlock:(void(^)(void))block {
     MJRefreshAutoFooter *footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
         if (block) block();
     }];
