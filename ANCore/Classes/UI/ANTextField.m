@@ -55,6 +55,17 @@
     }
 }
 
+- (void)setTextLeftSpace:(CGFloat)textLeftSpace {
+    _textLeftSpace = textLeftSpace;
+    
+    UIView *paddingLeftView = [[UIView alloc] init];
+    CGRect frame = self.frame;
+    frame.size.width = textLeftSpace;
+    paddingLeftView.frame = frame;
+    self.leftViewMode = UITextFieldViewModeAlways;
+    self.leftView = paddingLeftView;
+}
+
 #pragma mark - textfield delegate
 - (void)textFieldDidChange:(UITextField *)textField {
     

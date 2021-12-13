@@ -39,6 +39,8 @@ typedef void(^TextFieldBlock)(NSString *text);
 @property (nonatomic, assign) int limit;
 /// 提示
 @property (nonatomic, copy) NSString *promptText;
+/// 文字距离左侧距离
+@property (nonatomic, assign) CGFloat textLeftSpace;
 
 @end
 
