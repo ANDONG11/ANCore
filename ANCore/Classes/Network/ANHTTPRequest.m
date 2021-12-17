@@ -50,6 +50,11 @@
     return [NSURL URLWithString:@""];
 }
 
+#pragma mark - 上传图片视频时对应后台接收参数名
+- (NSString *)mediaName {
+    return @"";
+}
+
 #pragma mark - 网络请求
 - (void)netRequestWithSuccess:(void (^)(id response))success
                         error:(void(^)(void))error
@@ -81,7 +86,8 @@
     /// 是否重写父类方法
     BOOL overridImageMethod = [self.class instanceMethodForSelector:@selector(images)] != [ANHTTPRequest instanceMethodForSelector:@selector(images)];
     BOOL overridVideoMethod = [self.class instanceMethodForSelector:@selector(filePathURL)] != [ANHTTPRequest instanceMethodForSelector:@selector(filePathURL)];
-
+    BOOL overridNameMethod = [self.class instanceMethodForSelector:@selector(mediaName)] != [ANHTTPRequest instanceMethodForSelector:@selector(mediaName)];
+    NSAssert(overridNameMethod, @"上传图片视频时必须传入mediaName参数");
     /// 根据媒体类型判断是否传入相应参数
     /// 如果没传入则直接崩溃
     switch (mediaType) {
@@ -107,14 +113,21 @@
                 /// 图片上传
                 for (UIImage *image in [self images]) {
                     NSData *imageData = UIImageJPEGRepresentation(image, [self compressionQuality]);
-                    [formData appendPartWithFileData:imageData name:@"image" fileName:[[self fileName] stringByAppendingString:@".jpeg"] mimeType:@"image/jpeg"];
+                    [formData appendPartWithFileData:imageData
+                                                name:[self mediaName]
+                                            fileName:[[self fileName] stringByAppendingString:@".jpeg"]
+                                            mimeType:@"image/jpeg"];
                 }
             }
                 break;
             case UploadMediaVideoType:
             {
                 /// 视频上传
-                [formData appendPartWithFileURL:[self filePathURL] name:@"video" fileName:[self fileName] mimeType:@"application/octet-stream" error:nil];
+                [formData appendPartWithFileURL:[self filePathURL]
+                                           name:[self mediaName]
+                                       fileName:[[self fileName] stringByAppendingString:@".mp4"]
+                                       mimeType:@"application/octet-stream"
+                                          error:nil];
             }
                 break;
                 

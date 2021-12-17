@@ -54,8 +54,12 @@ typedef enum : NSUInteger {
 
 
 /// 视频地址
-/// 上传视频时必传参数
+/// 上传视频时必传参数 file://
 - (NSURL *)filePathURL;
+
+/// 上传图片视频时对应后端接受的名字
+/// 必须重写此字段
+- (NSString *)mediaName;
 
 
 /// 网络请求
