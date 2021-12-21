@@ -19,7 +19,7 @@ static ANHTTPSessionManager *_instance = nil;
         // 申明请求的数据是json类型
         _instance.requestSerializer  = [AFJSONRequestSerializer serializer];
         // 申明返回的结果类型
-        _instance.responseSerializer = [AFHTTPResponseSerializer serializer];
+        _instance.responseSerializer = [AFJSONResponseSerializer serializer];
         // 如果报接受类型不一致请替换一致text/html或别的
         _instance.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
                                                              @"text/json", @"text/javascript",@"text/html",

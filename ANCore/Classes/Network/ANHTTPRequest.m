@@ -126,7 +126,7 @@
                 [formData appendPartWithFileURL:[self filePathURL]
                                            name:[self mediaName]
                                        fileName:[[self fileName] stringByAppendingString:@".mp4"]
-                                       mimeType:@"application/octet-stream"
+                                       mimeType:@"video/mp4"
                                           error:nil];
             }
                 break;

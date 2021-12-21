@@ -20,21 +20,19 @@
 }
 
 - (void)successWithResponse:(id)response success:(void (^)(id _Nonnull))success error:(nonnull void (^)(void))error {
-    NSData *data = response;
-    NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     /// 数据输出日志
 #ifdef DEBUG
-    NSLog(@"\nurl:%@%@\nparams:%@\nheaders:%@\nbody:%@",[self baseUrl],[self requestUrl],[self requestArgument],[self requestHeaderFieldValueDictionary],responseDic);
+    NSLog(@"\nurl:%@%@\nparams:%@\nheaders:%@\nbody:%@",[self baseUrl],[self requestUrl],[self requestArgument],[self requestHeaderFieldValueDictionary],response);
 #else
 #endif
-    int code = [responseDic[@"code"] intValue];
+    int code = [response[@"code"] intValue];
     if (code == 200) {
         /// 请求成功
-        success(responseDic);
+        success(response);
     } else {
         /// 服务器请求失败
         error();
-        [self showMsgWithCode:code msg:responseDic[@"msg"]];
+        [self showMsgWithCode:code msg:response[@"msg"]];
     }
 }
 
