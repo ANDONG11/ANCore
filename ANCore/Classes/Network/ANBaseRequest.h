@@ -20,7 +20,7 @@ typedef void(^RequestManagerFailureHandle)(NSURLSessionTask * _Nullable task, NS
 typedef void (^RequestManagerProgressHandle)(NSProgress * _Nonnull progress);
 
 /// 请求方式
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, RequestMethodType) {
   
   /// GET请求
   RequestMethodTypeGET,
@@ -40,7 +40,7 @@ typedef enum : NSUInteger {
   /// HEAD请求
   RequestMethodTypeHEAD
   
-} RequestMethodType;
+};
 
 @interface ANBaseRequest : NSObject
 
