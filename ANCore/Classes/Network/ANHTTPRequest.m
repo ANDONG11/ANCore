@@ -123,7 +123,7 @@
             case UploadMediaVideoType:
             {
                 /// 视频上传
-                [formData appendPartWithFileURL:[self filePathURL]
+                [formData appendPartWithFileURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[self filePathURL].path]]
                                            name:[self mediaName]
                                        fileName:[[self fileName] stringByAppendingString:@".mp4"]
                                        mimeType:@"video/mp4"
@@ -136,6 +136,12 @@
         }
         
     } success:^(NSURLSessionTask * _Nullable task, id  _Nullable response) {
+        if (mediaType == UploadMediaVideoType) {
+            /// 视频上传成功后删除视频转码缓存
+            if ([[NSFileManager defaultManager] fileExistsAtPath:[self filePathURL].path]) {
+                [[NSFileManager defaultManager] removeItemAtPath:[self filePathURL].path error:nil];
+            }
+        }
         [self successWithResponse:response success:success error:error];
     } failure:^(NSURLSessionTask * _Nullable task, NSError * _Nullable error) {
         if (task.error.code == NSURLErrorCancelled) {
