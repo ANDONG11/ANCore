@@ -24,9 +24,8 @@
         self.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.autocorrectionType = UITextAutocorrectionTypeNo;
         self.returnKeyType = UIReturnKeyDone;
-        self.keyboardType = UIKeyboardTypeDefault;
         [self addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-        self.type = ANTextFieldASCII;
+        self.type = ANTextFieldDefault;
         
     }
     return self;
@@ -37,9 +36,11 @@
     switch (type) {
         case ANTextFieldDefault:
             _regex = nil;
+            self.keyboardType = UIKeyboardTypeDefault;
             break;
         case ANTextFieldASCII:
             _regex = @"[^a-zA-Z0-9\u4e00-\u9fa5]";
+            self.keyboardType = UIKeyboardTypeDefault;
             break;
         case ANTextFieldNumber:
             self.keyboardType = UIKeyboardTypeNumberPad;
