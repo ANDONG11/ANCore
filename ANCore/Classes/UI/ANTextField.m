@@ -92,7 +92,14 @@
         }
         [ProgressHUDManager showHUDAutoHiddenWithWarning:self.promptText];
     }
-    
+    /// 限制输入最大数量 多余数直接截取掉 并提示
+    if (self.maxValue && [textField.text integerValue] > self.maxValue) {
+        textField.text = [textField.text substringToIndex:(textField.text.length-1)];
+        if (!self.promptText) {
+            self.promptText = [NSString stringWithFormat:@"最大输入不能超过%ld",(long)self.maxValue];
+        }
+        [ProgressHUDManager showHUDAutoHiddenWithWarning:self.promptText];
+    }
     /// 如果文本未改变直接返回
     if (![text isEqualToString:textField.text]) {
         return;

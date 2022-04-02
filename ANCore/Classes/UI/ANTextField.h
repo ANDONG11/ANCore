@@ -37,6 +37,8 @@ typedef void(^TextFieldBlock)(NSString *text);
 @property (nonatomic, assign) ANTextFieldType type;
 /// 最大限制位数
 @property (nonatomic, assign) int limit;
+/// 最大限制值
+@property (nonatomic, assign) NSInteger maxValue;
 /// 提示
 @property (nonatomic, copy) NSString *promptText;
 /// 文字距离左侧距离
