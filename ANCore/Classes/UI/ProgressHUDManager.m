@@ -118,6 +118,7 @@
         }
         hud.mode = MBProgressHUDModeCustomView;
         hud.label.text = makeObj.ad_message;
+        hud.userInteractionEnabled = makeObj.ad_userInteractionEnabled;
         NSString *imageStr = @"";
         if (makeObj.ad_hudState == ProgressHUDTypeSuccess) {
             imageStr = @"ZBCore.bundle/hudSuccess@3x.png";
