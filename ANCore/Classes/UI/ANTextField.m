@@ -50,6 +50,10 @@
             self.keyboardType = UIKeyboardTypeASCIICapable;
             _regex = @"[^a-zA-Z0-9]";
             break;
+        case ANTextFieldDecimal:
+            self.keyboardType = UIKeyboardTypeDecimalPad;
+            _regex = @"[^0-9.]";
+            break;
             
         default:
             break;
@@ -127,8 +131,34 @@
     }
     /// 解决当双击切换标点时误删除正常文字 bug
     NSString *punctuateSring = @"，。？！._@/#-";
+    if (self.type == ANTextFieldDecimal) {
+        punctuateSring = @"，。？！_@/#-";
+    }
+    
     if (range.length == 0 && string.length == 1 && [punctuateSring containsString:string]) {
         return NO;
+    }
+    
+    if (self.type == ANTextFieldDecimal) {
+        /// 只允许输入一个小数点
+        if ([textField.text containsString:@"."] && [string isEqualToString:@"."]) {
+//            [ProgressHUDManager showHUDAutoHiddenWithWarning:@"只允许输入一个小数点"];
+            return NO;
+        }
+        /// 小数点不能为第一位
+        if (textField.text.length == 0 && [string isEqualToString:@"."]) {
+//            [ProgressHUDManager showHUDAutoHiddenWithWarning:@"第一位不能为小数点"];
+            return NO;
+        }
+        /// 限制小数点后只能输两位数字
+        NSArray * arrStr = [[textField.text stringByAppendingString:string] componentsSeparatedByString:@"."];
+        if (arrStr.count > 1) {
+            NSString *str1 = arrStr.lastObject;
+            if (str1.length > 2) {
+//                [ProgressHUDManager showHUDAutoHiddenWithWarning:@"最多输入两位小数"];
+                return NO;
+            }
+        }
     }
     
     

@@ -21,6 +21,9 @@ typedef enum : NSUInteger {
     /// 数字和字母
     ANTextFieldNumberORLetter,
     
+    /// 浮点数 最多输入两位小数
+    ANTextFieldDecimal,
+    
 } ANTextFieldType;
 
 NS_ASSUME_NONNULL_BEGIN
