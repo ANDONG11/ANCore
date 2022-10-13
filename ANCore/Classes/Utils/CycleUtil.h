@@ -34,6 +34,7 @@ typedef void(^CycleViewBlock)(NSInteger index, CGRect rect);
 /// 是否是正方形  如果为正方形 宽度等于高度 行间距和列间距设置改为自动计算
 @property (nonatomic, assign) BOOL isSquare;
 
+@property (nonatomic, assign) CGFloat backSpace;
 
 /// 循环创建
 /// @param count 创建数量

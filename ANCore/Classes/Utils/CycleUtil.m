@@ -31,7 +31,7 @@
     /// 根据列数和总数算出行数
     NSInteger row       = (count%column==0)?count/column:count/column+1;
     /// 列间距
-    CGFloat columnSpace = self.isSquare ? ([UIScreen mainScreen].bounds.size.width-self.height*column)/(column+1) : self.columnSpace;
+    CGFloat columnSpace = self.isSquare ? ([UIScreen mainScreen].bounds.size.width-self.height*column-self.backSpace*2)/(column+1) : self.columnSpace;
     /// 行间距
     CGFloat lineSpace   = self.isSquare ? columnSpace: self.lineSpace;
     /// 距左间距
@@ -41,7 +41,7 @@
     /// 高度
     CGFloat height      = self.height;
     /// 宽度
-    CGFloat width       = self.isSquare ? height: ([UIScreen mainScreen].bounds.size.width-leftSpace*2-columnSpace*(column-1))/column;
+    CGFloat width       = self.isSquare ? height: ([UIScreen mainScreen].bounds.size.width-leftSpace*2-columnSpace*(column-1)-self.backSpace*2)/column;
     
 
     for (int i = 0; i < row; i++) {
