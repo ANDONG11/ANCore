@@ -142,12 +142,10 @@
     if (self.type == ANTextFieldDecimal) {
         /// 只允许输入一个小数点
         if ([textField.text containsString:@"."] && [string isEqualToString:@"."]) {
-//            [ProgressHUDManager showHUDAutoHiddenWithWarning:@"只允许输入一个小数点"];
             return NO;
         }
         /// 小数点不能为第一位
         if (textField.text.length == 0 && [string isEqualToString:@"."]) {
-//            [ProgressHUDManager showHUDAutoHiddenWithWarning:@"第一位不能为小数点"];
             return NO;
         }
         /// 限制小数点后只能输两位数字
@@ -155,7 +153,6 @@
         if (arrStr.count > 1) {
             NSString *str1 = arrStr.lastObject;
             if (str1.length > 2) {
-//                [ProgressHUDManager showHUDAutoHiddenWithWarning:@"最多输入两位小数"];
                 return NO;
             }
         }

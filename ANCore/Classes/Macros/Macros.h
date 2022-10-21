@@ -109,13 +109,13 @@ static inline BOOL ph_dictionaryContainsKey(NSDictionary *dict, NSString *key) {
  *  字体适配
  */
 static inline CGFloat AdaptSize(CGFloat fontSize){
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        return fontSize*1.3;
+    }
     if (iPhoneWidth < 414) {
         return fontSize;
-    } else if (iPhoneWidth == 414){
-        return fontSize*1.1;
-    } else {
-        return fontSize*1.2;
     }
+    return fontSize*1.1;
 }
 
 #endif /* Macros_h */
