@@ -35,6 +35,7 @@
     _type = type;
     switch (type) {
         case ANTextFieldDefault:
+        case ANTextFieldDefaultNoSpace:
             _regex = nil;
             self.keyboardType = UIKeyboardTypeDefault;
             break;
@@ -129,6 +130,14 @@
     if (self.type == ANTextFieldDefault) {
         return YES;
     }
+    
+    if (self.type == ANTextFieldDefaultNoSpace) {
+        if ([string isEqualToString:@" "]) {
+//            string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+            return NO;
+        }
+    }
+    
     /// 解决当双击切换标点时误删除正常文字 bug
     NSString *punctuateSring = @"，。？！._@/#-";
     if (self.type == ANTextFieldDecimal) {

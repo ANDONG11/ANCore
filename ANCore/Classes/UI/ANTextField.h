@@ -15,6 +15,9 @@ typedef enum : NSUInteger {
     /// 默认 全部字符包含特殊字符和表情
     ANTextFieldDefault,
     
+    /// 默认 除去空格
+    ANTextFieldDefaultNoSpace,
+    
     /// 纯数字
     ANTextFieldNumber,
     
