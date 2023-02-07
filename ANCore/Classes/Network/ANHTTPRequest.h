@@ -18,7 +18,10 @@ typedef enum : NSUInteger {
     UploadMediaImageType,
     
     /// 视频
-    UploadMediaVideoType
+    UploadMediaVideoType,
+    
+    /// 文件
+    UploadMediaFileType
     
 } UploadMediaType;
 

@@ -97,6 +97,9 @@
         case UploadMediaVideoType:
             NSAssert(overridVideoMethod, @"上传视频时必须重写filePathURL传入视频地址");
             break;
+        case UploadMediaFileType:
+            NSAssert(overridVideoMethod, @"上传文件时必须重写filePathURL传入视频地址");
+            break;
             
         default:
             break;
@@ -127,6 +130,16 @@
                                            name:[self mediaName]
                                        fileName:[[self fileName] stringByAppendingString:@".mp4"]
                                        mimeType:@"video/mp4"
+                                          error:nil];
+            }
+                break;
+            case UploadMediaFileType:
+            {
+                /// 文件上传
+                [formData appendPartWithFileURL:[self filePathURL]
+                                           name:[self mediaName]
+                                       fileName:[[self fileName] stringByAppendingString:@".pdf"]
+                                       mimeType:@"application/pdf"
                                           error:nil];
             }
                 break;

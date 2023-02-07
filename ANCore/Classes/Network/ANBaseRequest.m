@@ -56,7 +56,7 @@
                                  success:(RequestManagerSuccessHandle)success
                                  failure:(RequestManagerFailureHandle)failure
                                 progress:(RequestManagerProgressHandle)progress {
-    
+    URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     ANHTTPSessionManager *manager = [ANHTTPSessionManager sharedInstance];
     [manager POST:URLString parameters:params headers:headers constructingBodyWithBlock:formData progress:progress success:success failure:failure];
 }
@@ -67,7 +67,7 @@
                                    progress:(RequestManagerProgressHandle)progress
                                 destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
                           completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler {
-
+    URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     ANHTTPSessionManager *manager = [ANHTTPSessionManager sharedInstance];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:progress destination:destination completionHandler:completionHandler];
