@@ -138,8 +138,8 @@
                 /// 文件上传
                 [formData appendPartWithFileURL:[self filePathURL]
                                            name:[self mediaName]
-                                       fileName:[[self fileName] stringByAppendingString:@".pdf"]
-                                       mimeType:@"application/pdf"
+                                       fileName:[[self fileName] stringByAppendingString:[NSString stringWithFormat:@".%@",[self filePathURL].pathExtension]]
+                                       mimeType:@"application/octet-stream"
                                           error:nil];
             }
                 break;
@@ -203,6 +203,7 @@
     }];
 }
 
+/// 文件名字
 - (NSString *)fileName {
     /// 设置时间格式(给个时间便于区分)
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
