@@ -72,7 +72,7 @@ typedef NS_ENUM(NSUInteger, HUDShowStateType) {
 
 /// 进度条
 /// @param progressValue 进度值
-+ (void)uploadProgress:(CGFloat)progressValue;
++ (void)showHUDUploadProgress:(CGFloat)progressValue;
 
 
 /// 自定义展示

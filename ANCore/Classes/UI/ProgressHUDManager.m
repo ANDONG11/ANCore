@@ -27,164 +27,134 @@
 
 #pragma mark - 显示纯文字并自动消失
 + (void)showHUDAutoHiddenWithText:(NSString *)showString {
-    [ProgressHUDManager showHUDWithState:^(ProgressHUDManager *make) {
-        make.message(showString).autoHidden(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeText).message(showString).autoHidden(YES);
     }];
 }
 
 #pragma mark - 显示纯文字并自动消失(指定view上)
 + (void)showHUDAutoHiddenWithText:(NSString *)showString inView:(UIView *)inView {
-    [ProgressHUDManager showHUDWithState:^(ProgressHUDManager *make) {
-        make.inView(inView).message(showString).autoHidden(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeText).inView(inView).message(showString).autoHidden(YES);
     }];
 }
 
 #pragma mark - 显示纯文字
 + (void)showHUDWithText:(NSString *)showString {
-    [ProgressHUDManager showHUDWithState:^(ProgressHUDManager *make) {
-        make.message(showString).userInteractionEnabled(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeText).message(showString).userInteractionEnabled(YES);
     }];
 }
 
 #pragma mark - 显示纯文字(指定view)
 + (void)showHUDWithText:(NSString *)showString inView:(UIView *)inView {
-    [ProgressHUDManager showHUDWithState:^(ProgressHUDManager *make) {
-        make.message(showString).inView(inView).userInteractionEnabled(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeText).message(showString).inView(inView).userInteractionEnabled(YES);
     }];
 }
 
 #pragma mark - 显示成功并自动消失
 + (void)showHUDAutoHiddenWithSuccess:(NSString *)showString {
-    [ProgressHUDManager showHUDWithState:^(ProgressHUDManager *make) {
-        make.hudState(ProgressHUDTypeSuccess).message(showString).autoHidden(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeCustomView).hudState(ProgressHUDTypeSuccess).message(showString).autoHidden(YES);
     }];
 }
 
 #pragma mark - 显示成功并自动消失(指定view)
 + (void)showHUDAutoHiddenWithSuccess:(NSString *)showString inView:(UIView *)inView {
-    [ProgressHUDManager showHUDWithState:^(ProgressHUDManager *make) {
-        make.hudState(ProgressHUDTypeSuccess).message(showString).autoHidden(YES).inView(inView);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeCustomView).hudState(ProgressHUDTypeSuccess).message(showString).autoHidden(YES).inView(inView);
     }];
 }
 
 #pragma mark - 显示错误并自动消失
 + (void)showHUDAutoHiddenWithError:(NSString *)showString {
-    [ProgressHUDManager showHUDWithState:^(ProgressHUDManager *make) {
-        make.hudState(ProgressHUDTypeError).message(showString).autoHidden(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeCustomView).hudState(ProgressHUDTypeError).message(showString).autoHidden(YES);
     }];
 }
 
 #pragma mark - 显示警告并自动消失
 + (void)showHUDAutoHiddenWithWarning:(NSString *)showString {
-    [ProgressHUDManager showHUDWithState:^(ProgressHUDManager *make) {
-        make.hudState(ProgressHUDTypeWarning).message(showString).autoHidden(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeCustomView).hudState(ProgressHUDTypeWarning).message(showString).autoHidden(YES);
     }];
 }
 
 #pragma mark - 只显示菊花不显示文字（指定view）
 + (void)showHUDLoadingWithView:(UIView *)inView {
-    [ProgressHUDManager showHUDLoading:^(ProgressHUDManager *make) {
-        make.inView(inView).userInteractionEnabled(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeIndeterminate).inView(inView).userInteractionEnabled(YES);
     }];
 }
 
 #pragma mark - 只显示菊花不显示文字
 + (void)showHUDLoading {
-    [ProgressHUDManager showHUDLoading:^(ProgressHUDManager *make) {
-        make.autoHidden(NO).userInteractionEnabled(YES);
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeIndeterminate).autoHidden(NO).userInteractionEnabled(YES);
     }];
 }
 
-#pragma mark - 改变进度条值（指定view）
-+ (void)uploadProgress:(CGFloat)progressValue {
-    
-    [ProgressHUDManager uploadProgressValue:^(ProgressHUDManager *make) {
-        make.progressValue(progressValue);
+#pragma mark - 进度条
++ (void)showHUDUploadProgress:(CGFloat)progressValue {
+    [ProgressHUDManager showHUDCustom:^(ProgressHUDManager *make) {
+        make.hudMode(MBProgressHUDModeDeterminateHorizontalBar).progressValue(progressValue).userInteractionEnabled(YES).message(@"上传中");
     }];
-}
-
-#pragma mark - 显示状态自定义
-+ (void)showHUDWithState:(void (^)(ProgressHUDManager *make))block {
-    ProgressHUDManager *makeObj = [[ProgressHUDManager alloc] init];
-    if (makeObj) {
-        block(makeObj);
-    }
-    
-    __block MBProgressHUD *hud = [MBProgressHUD HUDForView:makeObj.ad_inView];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        if (!hud) {
-            hud = [ProgressHUDManager configHUDWithMakeObj:makeObj];
-        }
-        hud.mode = MBProgressHUDModeCustomView;
-        hud.label.text = makeObj.ad_message;
-        hud.userInteractionEnabled = makeObj.ad_userInteractionEnabled;
-        NSString *imageStr = @"";
-        if (makeObj.ad_hudState == ProgressHUDTypeSuccess) {
-            imageStr = @"ZBCore.bundle/hudSuccess@3x.png";
-        } else if (makeObj.ad_hudState == ProgressHUDTypeError) {
-            imageStr = @"ZBCore.bundle/hudError@3x.png";
-        } else if (makeObj.ad_hudState == ProgressHUDTypeWarning) {
-            imageStr = @"ZBCore.bundle/hudInfo@3x.png";
-        } else {
-            hud.minSize = CGSizeMake(40,30);
-        }
-        if (![imageStr isEqualToString:@""]) {
-            hud.customView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:imageStr] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        }
-        if (makeObj.ad_autoHidden) {
-            [hud hideAnimated:makeObj.ad_animated afterDelay:2];
-        }
-    });
-}
-
-
-#pragma mark -
-+ (void)showHUDLoading:(void (^)(ProgressHUDManager *make))block {
-    ProgressHUDManager *makeObj = [[ProgressHUDManager alloc] init];
-    if (makeObj) {
-        block(makeObj);
-    }
-    
-    __block MBProgressHUD *hud = [MBProgressHUD HUDForView:makeObj.ad_inView];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (!hud) {
-            hud = [ProgressHUDManager configHUDWithMakeObj:makeObj];
-        }
-        if (makeObj.ad_autoHidden) {
-            [hud hideAnimated:makeObj.ad_animated afterDelay:2];
-        }
-    });
 }
 
 + (MBProgressHUD *)showHUDCustom:(void (^)(ProgressHUDManager *make))block {
+    
     ProgressHUDManager *makeObj = [[ProgressHUDManager alloc] init];
     if (makeObj) {
         block(makeObj);
     }
     
     __block MBProgressHUD *hud = [MBProgressHUD HUDForView:makeObj.ad_inView];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if (!hud) {
             hud = [ProgressHUDManager configHUDWithMakeObj:makeObj];
         }
+        hud.mode                   = makeObj.ad_hudMode;
+        hud.detailsLabel.text      = makeObj.ad_message;
+        hud.userInteractionEnabled = makeObj.ad_userInteractionEnabled;
+        hud.bezelView.style        = MBProgressHUDBackgroundStyleBlur;
+        
         switch (makeObj.ad_hudMode) {
             case MBProgressHUDModeIndeterminate:
-                hud.minSize=CGSizeMake(90, 100);
+                /// 菊花样式
+                hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
                 break;
             case MBProgressHUDModeDeterminate:
-                
+                /// 圆形指示器
                 break;
             case MBProgressHUDModeDeterminateHorizontalBar:
-                
+                /// 水平进度条
+                hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+                hud.progress = makeObj.ad_progressValue;
                 break;
             case MBProgressHUDModeAnnularDeterminate:
-                
+                /// 圆形指示器
                 break;
             case MBProgressHUDModeCustomView:
+            {
+                /// 自定义视图
+                NSString *imageStr = @"";
+                if (makeObj.ad_hudState == ProgressHUDTypeSuccess) {
+                    imageStr = @"ZBCore.bundle/hudSuccess@3x.png";
+                } else if (makeObj.ad_hudState == ProgressHUDTypeError) {
+                    imageStr = @"ZBCore.bundle/hudError@3x.png";
+                } else {
+                    imageStr = @"ZBCore.bundle/hudInfo@3x.png";
+                }
+                if (![imageStr isEqualToString:@""]) {
+                    hud.customView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:imageStr] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+                }
+            }
                 break;
             case MBProgressHUDModeText:
+                /// 文本
                 break;
             default:
                 break;
@@ -195,15 +165,6 @@
         }
     });
     return hud;
-}
-
-+ (void)uploadProgressValue:(void (^)(ProgressHUDManager *make))block {
-    ProgressHUDManager *makeObj = [[ProgressHUDManager alloc] init];
-    if (makeObj) {
-        block(makeObj);
-    }
-    __block MBProgressHUD *hud = [MBProgressHUD HUDForView:makeObj.ad_inView];
-    hud.progress = makeObj.ad_progressValue;
 }
 
 #pragma mark - 直接消失
@@ -232,16 +193,13 @@
 
 + (MBProgressHUD *)configHUDWithMakeObj:(ProgressHUDManager *)makeObj {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:makeObj.ad_inView animated:makeObj.ad_animated];
-    hud.label.text = makeObj.ad_message;
-    hud.label.font = [UIFont systemFontOfSize:14.f weight:UIFontWeightLight];
-    hud.animationType = MBProgressHUDAnimationZoomOut;
-    hud.mode = makeObj.ad_hudMode;
-    hud.offset = CGPointMake(0, -[[UIApplication sharedApplication] statusBarFrame].size.height-44);
+    hud.detailsLabel.font = [UIFont systemFontOfSize:15.f weight:UIFontWeightLight];
+    hud.contentColor = [UIColor hexStringToColor:@"#333333"];
+    hud.animationType = MBProgressHUDAnimationFade;
+    hud.offset = CGPointMake(0, -[[UIApplication sharedApplication] statusBarFrame].size.height-35);
     hud.margin = 16;
-    hud.bezelView.style = MBProgressHUDBackgroundStyleBlur;
-    hud.bezelView.color = [[UIColor hexStringToColor:@"#E9E9E9"] colorWithAlphaComponent:0.8];
     hud.bezelView.layer.cornerRadius = 5;
-    hud.userInteractionEnabled = makeObj.ad_userInteractionEnabled;
+    hud.bezelView.blurEffectStyle = UIBlurEffectStyleLight;
     return hud;
 }
 
