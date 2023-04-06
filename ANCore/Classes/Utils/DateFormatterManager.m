@@ -42,6 +42,9 @@ static NSDateFormatter *dateFormatter = nil;
  */
 + (NSString *)timestampSwitchTime:(NSString *)timestamp dateFormatter:(NSString *)dateFormatter {
     
+    if (!timestamp || [timestamp isEqualToString:@""]) {
+        return @"";
+    }
     NSDateFormatter *formatter = [DateFormatterManager dateFormatter];
     [formatter setDateFormat:dateFormatter];
     NSDate *confromTimesp;
