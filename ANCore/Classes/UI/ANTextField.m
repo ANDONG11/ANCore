@@ -89,11 +89,25 @@
         textField.text = [self filterCharactor:textField.text withRegex:_regex];
     }
     
+    int limitInt = self.limit;
+    /// 判断当前如果类型为浮点数 并且输入小数 限制位数不包含小数位
+    if (self.type == ANTextFieldDecimal && [textField.text containsString:@"."]) {
+        NSRange range = [textField.text rangeOfString:@"."];
+        if (range.location == 8) {
+            limitInt += 3;
+        }
+        if (range.location == 7) {
+            limitInt += 2;
+        }
+        if (range.location == 6) {
+            limitInt += 1;
+        }
+    }
     /// 限制输入位数 多余位数直接截取掉 并提示
-    if (self.limit && textField.text.length > self.limit) {
-        textField.text = [textField.text substringToIndex:self.limit];
+    if (limitInt && textField.text.length > limitInt) {
+        textField.text = [textField.text substringToIndex:limitInt];
         if (!self.promptText) {
-            self.promptText = [NSString stringWithFormat:@"最大只能输入%d位",self.limit];
+            self.promptText = [NSString stringWithFormat:@"最大只能输入%d位",limitInt];
         }
         [ProgressHUDManager showHUDAutoHiddenWithWarning:self.promptText];
     }
