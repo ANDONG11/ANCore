@@ -18,11 +18,11 @@
 
 
 /// iPhone X适配
-#define KStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height             /// 获取状态栏的高度
+#define KStatusBarHeight [UIApplication sharedApplication].windows.firstObject.windowScene.statusBarManager.statusBarFrame.size.height             /// 获取状态栏的高度
 #define KNavBarHeight 44.0      /// 导航栏的高度
-#define KTabBarHeight  ([[UIApplication sharedApplication] statusBarFrame].size.height > 20?83:49)  /// 根据状态栏的高度判断tabBar的高度
+#define KTabBarHeight  (KStatusBarHeight > 20?83:49)  /// 根据状态栏的高度判断tabBar的高度
 #define KtopHeitht (KStatusBarHeight + KNavBarHeight)    /// 顶部状态栏加导航栏高度
-#define KTabSpace  ([[UIApplication sharedApplication] statusBarFrame].size.height > 20?34:0)       /// 底部距安全区距离
+#define KTabSpace  (KStatusBarHeight > 20?34:0)       /// 底部距安全区距离
 
 #define kstandardWidth   (IsPortrait ? 375.0 : 812.0)
 #define kstandardHeight  (IsPortrait ? 812.0 : 375.0)
@@ -68,7 +68,7 @@
 #define dIS_IPHONEX ([UIScreen mainScreen].bounds.size.width >= 375.0f && [UIScreen mainScreen].bounds.size.height >= 812.0f)
 
 /// 判断是否为iPad
-#define dIS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define dIS_IPAD ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
 
 
 /// 判断 iOS 9 或更高的系统版本
