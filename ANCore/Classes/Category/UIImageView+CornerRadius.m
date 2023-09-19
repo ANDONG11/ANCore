@@ -63,21 +63,59 @@ const char kProcessedImage;
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize cornerRadii = CGSizeMake(cornerRadius, cornerRadius);
     
-    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
-    CGContextRef currentContext = UIGraphicsGetCurrentContext();
-    if (nil == currentContext) {
-        return;
-    }
-    UIBezierPath *cornerPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:rectCornerType cornerRadii:cornerRadii];
-    [cornerPath addClip];
-    [self.layer renderInContext:currentContext];
-    [self drawBorder:cornerPath];
-    UIImage *processedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    if (processedImage) {
-        objc_setAssociatedObject(processedImage, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    self.image = processedImage;
+    UIGraphicsImageRendererFormat *format = [[UIGraphicsImageRendererFormat alloc] init];
+    format.opaque = self.opaque;
+    format.scale = scale;
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:size format:format];
+    [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+        CGContextRef context = rendererContext.CGContext;
+        if (self.opaque) {
+            CGSize size = self.bounds.size;
+            size.width *= scale;
+            size.height *= scale;
+            CGContextSaveGState(context);
+            {
+//                if (!self.backgroundColor || CGColorGetAlpha(self.backgroundColor) < 1) {
+//                    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+//                    CGContextAddRect(context, CGRectMake(0, 0, size.width, size.height));
+//                    CGContextFillPath(context);}
+//                if (self.backgroundColor) {
+//                    CGContextSetFillColorWithColor(context, self.backgroundColor);
+//                    CGContextAddRect(context, CGRectMake(0, 0, size.width, size.height));
+//                    CGContextFillPath(context);
+//                }
+            }
+            CGContextRestoreGState(context);
+            
+            UIBezierPath *cornerPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:rectCornerType cornerRadii:cornerRadii];
+            [cornerPath addClip];
+            [self.layer renderInContext:context];
+            [self drawBorder:cornerPath];
+            UIImage *processedImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            if (processedImage) {
+                objc_setAssociatedObject(processedImage, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            }
+            self.image = processedImage;
+        }
+    }];
+    
+//    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
+//    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+//    if (nil == currentContext) {
+//        return;
+//    }
+//    UIBezierPath *cornerPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:rectCornerType cornerRadii:cornerRadii];
+//    [cornerPath addClip];
+////    [self.layer renderInContext:currentContext];
+//    [self drawBorder:cornerPath];
+//    UIImage *processedImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    if (processedImage) {
+//        objc_setAssociatedObject(processedImage, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//    }
+//    self.image = processedImage;
+    
 }
 
 /**
