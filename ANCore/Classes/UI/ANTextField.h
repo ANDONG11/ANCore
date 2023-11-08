@@ -43,9 +43,9 @@ typedef void(^TextFieldBlock)(NSString *text);
 @property (nonatomic, assign) ANTextFieldType type;
 /// 最大限制位数
 @property (nonatomic, assign) int limit;
-/// 最大限制值
-@property (nonatomic, assign) NSInteger maxValue;
-/// 提示
+/// 最大限制数值 正整数
+@property (nonatomic, assign) int maxValue;
+/// 限制位数和限制最大输入默认提示  可自定义修改
 @property (nonatomic, copy) NSString *promptText;
 /// 文字距离左侧距离
 @property (nonatomic, assign) CGFloat textLeftSpace;

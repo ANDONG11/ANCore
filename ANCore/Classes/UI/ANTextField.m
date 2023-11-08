@@ -26,7 +26,8 @@
         self.returnKeyType = UIReturnKeyDone;
         [self addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         self.type = ANTextFieldDefault;
-        
+        /// 初始化最大值为-1  因为int类型不能赋空
+        self.maxValue = -1;
     }
     return self;
 }
@@ -110,6 +111,7 @@
             self.promptText = [NSString stringWithFormat:@"最大只能输入%d位",limitInt];
         }
         [ProgressHUDManager showHUDAutoHiddenWithWarning:self.promptText];
+        return;
     }
     /// 限制输入最大数量 多余数直接截取掉 并提示
     if (self.maxValue >= 0 && [textField.text integerValue] > self.maxValue) {
@@ -118,6 +120,7 @@
             self.promptText = [NSString stringWithFormat:@"最大输入不能超过%ld",(long)self.maxValue];
         }
         [ProgressHUDManager showHUDAutoHiddenWithWarning:self.promptText];
+        return;
     }
     /// 如果文本未改变直接返回
     if (![text isEqualToString:textField.text]) {
@@ -141,10 +144,12 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 
+    /// 默认类型直接返回
     if (self.type == ANTextFieldDefault) {
         return YES;
     }
     
+    /// 去除空格类型 默认截取空格并替换
     if (self.type == ANTextFieldDefaultNoSpace) {
         if ([string isEqualToString:@" "]) {
 //            string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -162,6 +167,8 @@
         return NO;
     }
     
+    /// 输入浮点数类型 默认只能输入一个小数点 并且小数点不能在第一位
+    /// 小数点后默认两位小数  
     if (self.type == ANTextFieldDecimal) {
         /// 只允许输入一个小数点
         if ([textField.text containsString:@"."] && [string isEqualToString:@"."]) {
